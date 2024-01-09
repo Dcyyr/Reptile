@@ -1,0 +1,3 @@
+[submodule "Reptile/vendor/spdlog"]
+	path = Reptile/vendor/spdlog
+	url = https://github.com/Dcyyr/spdlog.git
