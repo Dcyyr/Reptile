@@ -1,3 +1,5 @@
+#include"rppch.h"
+
 #include "Application.h"
 #include"Reptile/Events/ApplicationEvent.h"
 #include"Reptile/Log.h"

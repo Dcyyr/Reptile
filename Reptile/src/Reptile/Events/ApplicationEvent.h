@@ -3,8 +3,6 @@
 
 #include"Event.h"
 
-#include<sstream>
-
 namespace Reptile {
 
 	class REPTILE_API WindowResizeEvent : public Event

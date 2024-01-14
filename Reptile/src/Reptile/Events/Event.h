@@ -2,9 +2,6 @@
 
 #include"Reptile/Core.h"
 
-#include<string>
-#include<functional>
-
 
 namespace Reptile
 {

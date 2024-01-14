@@ -18,6 +18,10 @@ workspace "Reptile"
 		targetdir("bin/" .. outputdir .. "/%{prj.name}")
 		objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
+		pchheader "rppch.h"
+		pchsource "Reptile/src/rppch.cpp"
+		
+
 		files
 		{
 			"%{prj.name}/src/**.h",
@@ -68,7 +72,7 @@ project "Sandbox"
 	language "C++"
 
 	targetdir("bin/" .. outputdir .. "/%{prj.name}")
-		objdir("bin-int/" .. outputdir .. "/%{prj.name}")
+	objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
 		files
 		{

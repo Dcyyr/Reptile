@@ -1,34 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Events">
-      <UniqueIdentifier>{3A8963B1-262B-8E87-0FE6-A1DBFB2615D8}</UniqueIdentifier>
+    <Filter Include="Reptile">
+      <UniqueIdentifier>{1A3CAC9F-861B-2B3B-8F33-B611FB91919C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reptile\Events">
+      <UniqueIdentifier>{BE0636FE-AAD4-2904-9368-9A2A7FD50569}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Reptile\Application.h" />
-    <ClInclude Include="src\Reptile\Core.h" />
-    <ClInclude Include="src\Reptile\EntryPoint.h" />
+    <ClInclude Include="src\Reptile.h" />
+    <ClInclude Include="src\Reptile\Application.h">
+      <Filter>Reptile</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Core.h">
+      <Filter>Reptile</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\EntryPoint.h">
+      <Filter>Reptile</Filter>
+    </ClInclude>
     <ClInclude Include="src\Reptile\Events\ApplicationEvent.h">
-      <Filter>Events</Filter>
+      <Filter>Reptile\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Reptile\Events\Event.h">
-      <Filter>Events</Filter>
+      <Filter>Reptile\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Reptile\Events\KeyEvent.h">
-      <Filter>Events</Filter>
+      <Filter>Reptile\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Reptile\Events\MouseEvent.h">
-      <Filter>Events</Filter>
+      <Filter>Reptile\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Reptile\Log.h" />
-    <ClInclude Include="src\Reptile.h" />
+    <ClInclude Include="src\Reptile\Log.h">
+      <Filter>Reptile</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rppch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Reptile\Application.cpp" />
-    <ClCompile Include="src\Reptile\Log.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cpp.hint" />
+    <ClCompile Include="src\Reptile\Application.cpp">
+      <Filter>Reptile</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Log.cpp">
+      <Filter>Reptile</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rppch.cpp" />
   </ItemGroup>
 </Project>
