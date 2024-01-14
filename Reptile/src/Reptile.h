@@ -1,9 +1,9 @@
 #pragma once
 
 
-#include"Reptile/Application.h"
 #include"Reptile/Log.h"
+#include"Reptile/Application.h"
 
-//----------EntryPoint---------------------
+//-----------------EntryPoint---------------------
 #include"Reptile/EntryPoint.h"
-//---------------------------------------
+//----------------------------------------------

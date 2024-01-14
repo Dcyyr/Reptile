@@ -10,3 +10,5 @@
 #else
 	#error Reptile only support on windows!
 #endif
+
+#define BIT(x) (1 << x)
