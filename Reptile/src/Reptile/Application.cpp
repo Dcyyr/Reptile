@@ -4,11 +4,13 @@
 #include"Reptile/Events/ApplicationEvent.h"
 #include"Reptile/Log.h"
 
+#include<GLFW/glfw3.h>
+
 namespace Reptile{
 
 	Application::Application()
 	{
-
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -18,16 +20,14 @@ namespace Reptile{
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1280, 720);
-		if (e.IsInCategory(EventCategoryApplication))
+		while (m_Running)
 		{
-			RP_TRACE(e);
+			glClearColor(1, 1, 2, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			m_Window->OnUpdate();
+
 		}
-		if (e.IsInCategory(EventCategoryInput))
-		{
-			RP_TRACE(e);
-		}
-		while (true);
+		
 	}
 
 }

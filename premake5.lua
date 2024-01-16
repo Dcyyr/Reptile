@@ -10,6 +10,11 @@ workspace "Reptile"
 
 	outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+	IncludeDir = {}
+	IncludeDir["GLFW"] = "Reptile/vendor/GLFW/include"
+
+	include "Reptile/vendor/GLFW"
+
 	project "Reptile"
 		location "Reptile"
 		kind "SharedLib"
@@ -31,9 +36,17 @@ workspace "Reptile"
 		includedirs
 		{
 			"%{prj.name}/src",
-			"%{prj.name}/vendor/spdlog/include"
+			"%{prj.name}/vendor/spdlog/include",
+			"%{IncludeDir.GLFW}"
+			
 		}
 
+		links
+		{
+			"GLFW",
+			"opengl32.lib"
+		}
+	
 
 		filter "system:windows"
 			cppdialect "C++14"
