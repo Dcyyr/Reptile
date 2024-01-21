@@ -40,6 +40,12 @@
     <ClInclude Include="src\Reptile\Events\MouseEvent.h">
       <Filter>Reptile\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Reptile\Layer.h">
+      <Filter>Reptile</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\LayerStack.h">
+      <Filter>Reptile</Filter>
+    </ClInclude>
     <ClInclude Include="src\Reptile\Log.h">
       <Filter>Reptile</Filter>
     </ClInclude>
@@ -53,6 +59,12 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Reptile\Application.cpp">
+      <Filter>Reptile</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Layer.cpp">
+      <Filter>Reptile</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\LayerStack.cpp">
       <Filter>Reptile</Filter>
     </ClCompile>
     <ClCompile Include="src\Reptile\Log.cpp">

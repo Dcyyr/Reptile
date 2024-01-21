@@ -8,7 +8,6 @@ int main(int argc,char**argv)
 {
 	Reptile::Log::Init();
 	RP_CORE_WARN("Initialized Log!");
-	RP_ERROR("FUCK");
 	RP_INFO("Hello");
 
 

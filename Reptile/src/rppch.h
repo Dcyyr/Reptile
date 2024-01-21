@@ -1,9 +1,5 @@
 #pragma once
 
-#ifdef RP_PLATFORM_WINDOWS
-	#include<Windows.h>
-#endif
-
 #include<iostream>
 #include<utility>
 #include<algorithm>
@@ -17,3 +13,8 @@
 #include<unordered_set>
 
 #include"Reptile/Log.h"
+
+
+#ifdef RP_PLATFORM_WINDOWS
+	#include<Windows.h>
+#endif

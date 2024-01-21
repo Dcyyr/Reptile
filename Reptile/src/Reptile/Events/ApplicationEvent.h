@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include"Event.h"
 
 namespace Reptile {
@@ -25,7 +24,7 @@ namespace Reptile {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	private:
 		unsigned int m_Width, m_Height;
-
+	};
 		class REPTILE_API WindowCloseEvent : public Event
 		{
 		public:
@@ -63,5 +62,5 @@ namespace Reptile {
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 		};
 
-	};
+	
 }

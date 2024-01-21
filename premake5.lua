@@ -12,8 +12,10 @@ workspace "Reptile"
 
 	IncludeDir = {}
 	IncludeDir["GLFW"] = "Reptile/vendor/GLFW/include"
+	IncludeDir["Glad"] = "Reptile/vendor/Glad/include"
 
 	include "Reptile/vendor/GLFW"
+	include "Reptile/vendor/Glad"
 
 	project "Reptile"
 		location "Reptile"
@@ -37,26 +39,29 @@ workspace "Reptile"
 		{
 			"%{prj.name}/src",
 			"%{prj.name}/vendor/spdlog/include",
-			"%{IncludeDir.GLFW}"
+			"%{IncludeDir.GLFW}",
+			"%{IncludeDir.Glad}"
 			
 		}
 
 		links
 		{
 			"GLFW",
+			"Glad",
 			"opengl32.lib"
 		}
 	
 
 		filter "system:windows"
-			cppdialect "C++14"
+			cppdialect "C++17"
 			staticruntime "On"
 			systemversion "latest"
 
 			defines
 			{
 				"RP_PLATFORM_WINDOWS",
-				"RP_BUILD_DLL"
+				"RP_BUILD_DLL",
+				"GLFW_INCLUDE_NONE"
 			}
 
 			postbuildcommands
@@ -66,14 +71,17 @@ workspace "Reptile"
 
 	filter "configurations:Debug"
 		defines "PR_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "PR_RELEASE"
+		buildoptions "/MD"
 		symbols "On"
 
 	filter "configurations:Dist"
 		defines "PR_DIST"
+		buildoptions "/MD"
 		symbols "On"
 
 
@@ -101,14 +109,14 @@ project "Sandbox"
 
 
 		filter "system:windows"
-			cppdialect "C++14"
+			cppdialect "C++17"
 			staticruntime "On"
 			systemversion "latest"
 
-			defines
-			{
-				"RP_PLATFORM_WINDOWS"
-			}
+		defines
+		{
+			"RP_PLATFORM_WINDOWS"
+		}
 
 		links
 		{
@@ -117,12 +125,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "PR_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "PR_RELEASE"
+		buildoptions "/MD"
 		symbols "On"
 
 	filter "configurations:Dist"
 		defines "PR_DIST"
+		buildoptions "/MD"
 		symbols "On"
