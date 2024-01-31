@@ -1,5 +1,6 @@
 #include"Reptile.h"
 
+
 class ExampleLayer : public Reptile::Layer
 {
 public:
@@ -11,12 +12,19 @@ public:
 
 	void OnUpdate() override
 	{
-		RP_INFO("ExampleLayer::Updata");
+		if (Reptile::Input::IsKeyPressed(RP_KEY_TAB))
+			RP_TRACE("tab key is pressed!");
 	}
 
 	void OnEvent(Reptile::Event& event) override
 	{
-		RP_TRACE("{0}", event);
+		if (event.GetEventType() == Reptile::EventType::KeyPressed)
+		{
+			Reptile::KeyPressedEvent& e = (Reptile::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == RP_KEY_TAB)
+				RP_TRACE("tab key is pressed(event)!");
+			RP_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 
@@ -26,6 +34,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Reptile::ImGuiLayer());
 	}
 
 	~Sandbox()
