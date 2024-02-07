@@ -1,5 +1,6 @@
 #include"Reptile.h"
 
+#include"imgui/imgui.h"
 
 class ExampleLayer : public Reptile::Layer
 {
@@ -15,6 +16,13 @@ public:
 		if (Reptile::Input::IsKeyPressed(RP_KEY_TAB))
 			RP_TRACE("tab key is pressed!");
 	}
+
+	//virtual void OnImGuiRender() override
+	//{
+	//	ImGui::Begin("test");
+	//	ImGui::Text("hello");
+	//	ImGui::End();
+	//}
 
 	void OnEvent(Reptile::Event& event) override
 	{
@@ -34,7 +42,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Reptile::ImGuiLayer());
+		//PushOverlay(new Reptile::ImGuiLayer());
 	}
 
 	~Sandbox()
@@ -46,4 +54,5 @@ public:
 Reptile::Application* Reptile::CreateApplication()
 {
 	return new Sandbox();
+
 }

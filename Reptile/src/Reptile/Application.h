@@ -5,6 +5,7 @@
 #include"Reptile/Events/Event.h"
 #include"Reptile/Events/ApplicationEvent.h"
 #include"Reptile/LayerStack.h"
+#include"Reptile/ImGui/ImGuiLayer.h"
 #include"Window.h"
 
 namespace Reptile {
@@ -27,7 +28,7 @@ namespace Reptile {
 			inline static Application& Get() { return *s_Instance; }
 		private:
 			bool OnWindowClose(WindowCloseEvent& e);
-
+			ImGuiLayer* m_ImGuiLayer;
 			std::unique_ptr<Window> m_Window;
 			bool m_Running = true;
 			LayerStack m_LayerStack;

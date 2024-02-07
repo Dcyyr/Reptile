@@ -12,14 +12,20 @@ workspace "Reptile"
 	outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 	IncludeDir = {}
-	IncludeDir["GLFW"] = "Reptile/vendor/GLFW/include"
-	IncludeDir["Glad"] = "Reptile/vendor/Glad/include"
+	IncludeDir["GLFW"]  = "Reptile/vendor/GLFW/include"
+	IncludeDir["Glad"]  = "Reptile/vendor/Glad/include"
 	IncludeDir["ImGui"] = "Reptile/vendor/imgui"
-	IncludeDir["glm"] = "Reptile/vendor/glm"
+	IncludeDir["glm"]   = "Reptile/vendor/glm"
 
-	include "Reptile/vendor/GLFW"
-	include "Reptile/vendor/Glad"
-	include "Reptile/vendor/imgui"
+
+	group "Dependencies"
+
+		include "Reptile/vendor/GLFW"
+		include "Reptile/vendor/Glad"
+		include "Reptile/vendor/imgui"
+
+	group ""
+	
 
 
 	project "Reptile"
@@ -119,6 +125,7 @@ project "Sandbox"
 		{
 			"Reptile/vendor/spdlog/include",
 			"Reptile/src",
+			"Reptile/vendor",
 			"%{IncludeDir.glm}"
 		}
 
