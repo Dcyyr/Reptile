@@ -93,6 +93,9 @@
     <ClInclude Include="src\Reptile\MouseButtonCodes.h">
       <Filter>src\Reptile</Filter>
     </ClInclude>
+    <ClInclude Include="src\Reptile\Timer.h">
+      <Filter>src\Reptile</Filter>
+    </ClInclude>
     <ClInclude Include="src\Reptile\Window.h">
       <Filter>src\Reptile</Filter>
     </ClInclude>

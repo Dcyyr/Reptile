@@ -30,9 +30,10 @@ workspace "Reptile"
 
 	project "Reptile"
 		location "Reptile"
-		kind "SharedLib"
+		kind "StaticLib"
 		language "C++"
-		staticruntime"off"
+		cppdialect "C++17"
+		staticruntime"on"
 
 		targetdir("bin/" .. outputdir .. "/%{prj.name}")
 		objdir("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -47,8 +48,11 @@ workspace "Reptile"
 			"%{prj.name}/src/**.cpp",
 			"%{prj.name}/vendor/glm/glm/**.hpp",
 			"%{prj.name}/vendor/glm/glm/**.inl"
+		}
 
-
+		defines
+		{
+			"_CRT_SECURE_NO_WARNINGS"
 		}
 
 		includedirs
@@ -73,7 +77,6 @@ workspace "Reptile"
 	
 
 		filter "system:windows"
-			cppdialect "C++17"
 			systemversion "latest"
 
 			defines
@@ -83,33 +86,28 @@ workspace "Reptile"
 				"GLFW_INCLUDE_NONE"
 			}
 
-			postbuildcommands
-			{
-				("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
-			}
-
 	filter "configurations:Debug"
 		defines "PR_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "PR_RELEASE"
 		runtime "Release"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Dist"
 		defines "PR_DIST"
 		runtime "Release"
-		symbols "On"
+		symbols "on"
 
 
 
 project "Sandbox"
 	location "Sandbox"	
 	kind "ConsoleApp"
-	staticruntime "off"
-
+	staticruntime "on"
+	cppdialect "C++17"
 	language "C++"
 
 	targetdir("bin/" .. outputdir .. "/%{prj.name}")
@@ -131,7 +129,6 @@ project "Sandbox"
 
 
 		filter "system:windows"
-			cppdialect "C++17"
 			systemversion "latest"
 
 		defines
@@ -147,14 +144,14 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "PR_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "PR_RELEASE"
 		runtime "Release"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Dist"
 		defines "PR_DIST"
 		runtime "Release"
-		symbols "On"
+		symbols "on"

@@ -70,7 +70,7 @@ namespace Reptile {
 		ImGuiIO& io = ImGui::GetIO();
 
 		Application& app = Application::Get();
-		io.DisplaySize = ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
+		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
 		//‰÷»æ
 		ImGui::Render();

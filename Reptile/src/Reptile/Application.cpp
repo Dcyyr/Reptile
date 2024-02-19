@@ -70,6 +70,7 @@ namespace Reptile{
 			for (Layer* layer : m_LayerStack)
 				layer->OnImGuiRender();
 			m_ImGuiLayer->End();
+
 			m_Window->OnUpdate();
 		}
 		

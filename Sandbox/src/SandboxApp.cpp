@@ -17,7 +17,7 @@ public:
 			RP_TRACE("tab key is pressed!");
 	}
 
-	//virtual void OnImGuiRender() override
+	//void OnImGuiRender() override
 	//{
 	//	ImGui::Begin("test");
 	//	ImGui::Text("hello");
