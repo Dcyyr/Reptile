@@ -32,9 +32,13 @@ namespace Reptile {
 		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;//启用游戏手柄控制
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable; //启用停靠
 		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; //启用多视口/平台窗口
+		
 		//设置imgui风格
 		ImGui::StyleColorsDark();
 		//ImGui::StyleColorsClassic();
+		//ImGui::StyleColorsLight();
+
+
 		//启用视口后，我们将调整 WindowRounding/WindowBg 使平台窗口看起来与普通窗口相同。
 		ImGuiStyle& style = ImGui::GetStyle();
 		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)

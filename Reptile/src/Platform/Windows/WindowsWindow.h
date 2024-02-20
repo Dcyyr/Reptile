@@ -3,7 +3,7 @@
 #include"Reptile/Window.h"
 
 #include<GLFW/glfw3.h>
-
+#include"Reptile/Renderer/GraphicsContext.h"
 
 namespace Reptile {
 
@@ -27,9 +27,11 @@ namespace Reptile {
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
+
 	private:
 		GLFWwindow* m_Window;
-	
+		GraphicsContext* m_Context;
+
 		struct WindowData
 		{
 			std::string Title;
