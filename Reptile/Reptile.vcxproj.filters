@@ -1352,6 +1352,7 @@
     </ClInclude>
     <ClInclude Include="src\Reptile\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Reptile\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -1382,5 +1383,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Reptile\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>

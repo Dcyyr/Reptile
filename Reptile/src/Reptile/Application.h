@@ -8,6 +8,8 @@
 #include"Reptile/ImGui/ImGuiLayer.h"
 #include"Window.h"
 
+#include"Reptile/Renderer/Shader.h"
+
 namespace Reptile {
 
 		class REPTILE_API Application
@@ -33,10 +35,12 @@ namespace Reptile {
 			bool m_Running = true;
 			LayerStack m_LayerStack;
 
+			unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+			std::unique_ptr<Shader> m_Shader;
 		private:
 			static Application* s_Instance;
 
-			unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+			
 		};
 
 
