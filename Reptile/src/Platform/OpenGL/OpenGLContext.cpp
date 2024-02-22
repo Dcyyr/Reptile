@@ -18,9 +18,7 @@ namespace Reptile {
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		RP_CORE_ASSERT(status, "≥ı ºªØglad ß∞‹");
-
-	
-
+		
 	}
 
 	void OpenGLContext::SwapBuffer()

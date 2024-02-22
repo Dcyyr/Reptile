@@ -9,7 +9,7 @@ int main(int argc,char**argv)
 	Reptile::Log::Init();
 	RP_CORE_WARN("Initialized Log!");
 	RP_INFO("Hello");
-
+	
 
 	auto app = Reptile::CreateApplication();
 	app->Run();

@@ -38,6 +38,7 @@ namespace Reptile {
 		m_Data.Height = props.Height;
 
 		RP_CORE_INFO("正在创建窗口{0}({1},{2})", props.Title, props.Width, props.Height);
+		
 
 		if (!s_GLFWInitialized)
 		{

@@ -1353,6 +1353,9 @@
     <ClInclude Include="src\Reptile\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Reptile\Renderer\Shader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Reptile\Renderer\Buffer.h" />
+    <ClInclude Include="src\Reptile\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -1384,5 +1387,8 @@
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Reptile\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Reptile\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Reptile\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>
