@@ -22,15 +22,15 @@ private:
 }
 
 // core log macros
-#define RP_CORE_ERROR(...)   ::Reptile::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define RP_CORE_WARN(...)    ::Reptile::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define RP_CORE_INFO(...)    ::Reptile::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define RP_CORE_TRACE(...)   ::Reptile::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define RP_CORE_FATAL(...)   ::Reptile::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define RP_CORE_ERROR(...)      ::Reptile::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define RP_CORE_WARN(...)       ::Reptile::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define RP_CORE_INFO(...)       ::Reptile::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define RP_CORE_TRACE(...)      ::Reptile::Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define RP_CORE_CRITICAL(...)   ::Reptile::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 // client log macros
-#define RP_ERROR(...)   ::Reptile::Log::GetClientLogger()->error(__VA_ARGS__)
-#define RP_WARN(...)    ::Reptile::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define RP_INFO(...)    ::Reptile::Log::GetClientLogger()->info(__VA_ARGS__)
-#define RP_TRACE(...)   ::Reptile::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define RP_FATAL(...)   ::Reptile::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define RP_ERROR(...)      ::Reptile::Log::GetClientLogger()->error(__VA_ARGS__)
+#define RP_WARN(...)       ::Reptile::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define RP_INFO(...)       ::Reptile::Log::GetClientLogger()->info(__VA_ARGS__)
+#define RP_TRACE(...)      ::Reptile::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define RP_CRITICAL(...)   ::Reptile::Log::GetClientLogger()->critical(__VA_ARGS__)

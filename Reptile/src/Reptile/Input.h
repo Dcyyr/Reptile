@@ -13,7 +13,7 @@ namespace Reptile {
 			return s_Instance->GetMousePositionImpl
 			();
 		}
-		inline static float GetMouseX() { return s_Instance->GetMouseXImpl(); }
+		inline static float GetMouseX() { return s_Instance->GetMouseXImpl(); }	
 		inline static float GetMouseY() { return s_Instance->GetMouseYImpl(); }
 
 	protected:
