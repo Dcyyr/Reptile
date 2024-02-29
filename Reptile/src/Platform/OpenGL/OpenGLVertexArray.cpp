@@ -28,7 +28,7 @@ namespace Reptile{
 
 	OpenGLVertexArray::OpenGLVertexArray()
 	{
-		glCreateBuffers(1,&m_RendererID);
+		glCreateVertexArrays(1,&m_RendererID);
 	}
 
 	OpenGLVertexArray::~OpenGLVertexArray()
@@ -48,7 +48,7 @@ namespace Reptile{
 
 	void OpenGLVertexArray::AddVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer)
 	{
-		RP_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().Size(), "Vertex buffer has no layout!");
+		RP_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex buffer has no layout!");
 
 		glBindVertexArray(m_RendererID);
 		vertexBuffer->Bind();
