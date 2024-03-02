@@ -121,6 +121,7 @@ namespace Reptile {
 
 		static VertexBuffer* Create(float* vertices, uint32_t size);
 	private:
+		
 	};
 
 	class IndexBuffer 

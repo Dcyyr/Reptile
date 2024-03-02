@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -155,6 +156,8 @@
     <ClInclude Include="src\Reptile\Renderer\Buffer.h" />
     <ClInclude Include="src\Reptile\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Reptile\Renderer\Renderer.h" />
+    <ClInclude Include="src\Reptile\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Reptile\Renderer\RendererCommand.h" />
     <ClInclude Include="src\Reptile\Renderer\Shader.h" />
     <ClInclude Include="src\Reptile\Renderer\VertexArray.h" />
     <ClInclude Include="src\Reptile\Timer.h" />
@@ -580,6 +583,7 @@
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
@@ -591,6 +595,8 @@
     <ClCompile Include="src\Reptile\Log.cpp" />
     <ClCompile Include="src\Reptile\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Reptile\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Reptile\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Reptile\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\Reptile\Renderer\Shader.cpp" />
     <ClCompile Include="src\Reptile\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\rppch.cpp">

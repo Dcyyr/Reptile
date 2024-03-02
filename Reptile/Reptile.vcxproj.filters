@@ -1358,6 +1358,9 @@
     <ClInclude Include="src\Reptile\Renderer\Renderer.h" />
     <ClInclude Include="src\Reptile\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Reptile\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Reptile\Renderer\RendererCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -1394,5 +1397,8 @@
     <ClCompile Include="src\Reptile\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Reptile\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Reptile\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Reptile\Renderer\RendererCommand.cpp" />
   </ItemGroup>
 </Project>
