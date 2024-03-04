@@ -12,6 +12,19 @@
 
 #include"Reptile/ImGui/ImGuiLayer.h"
 
+
+//-----------------Renderer-----------------------
+#include"Reptile/Renderer/Renderer.h"
+#include"Reptile/Renderer/RendererCommand.h"
+
+#include"Reptile/Renderer/Buffer.h"
+#include"Reptile/Renderer/VertexArray.h"
+#include"Reptile/Renderer/Shader.h"
+
+#include"Reptile/Renderer/OrthographicsCamera.h"
+//------------------------------------------------
+
+
 //-----------------EntryPoint---------------------
 #include"Reptile/EntryPoint.h"
-//----------------------------------------------
+//------------------------------------------------
