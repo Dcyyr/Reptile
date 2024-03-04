@@ -16,6 +16,7 @@ namespace Reptile {
 	OpenGLVertexBuffer::~OpenGLVertexBuffer()
 	{
 		glDeleteBuffers(1, &m_RendererID);
+		
 	}
 
 	void OpenGLVertexBuffer::Bind() const

@@ -12,6 +12,8 @@
 #include"Reptile/Renderer/Buffer.h"
 #include"Reptile/Renderer/VertexArray.h"
 
+#include"Reptile/Renderer/OrthographicsCamera.h"
+
 namespace Reptile {
 
 		class REPTILE_API Application
@@ -44,6 +46,8 @@ namespace Reptile {
 
 			std::shared_ptr<Shader> m_BlueShader;
 			std::shared_ptr<VertexArray> m_SquareVA;
+
+			OrthographicsCamera m_Camera;
 		private:
 			static Application* s_Instance;
 

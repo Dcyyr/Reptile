@@ -155,6 +155,7 @@
     <ClInclude Include="src\Reptile\MouseButtonCodes.h" />
     <ClInclude Include="src\Reptile\Renderer\Buffer.h" />
     <ClInclude Include="src\Reptile\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Reptile\Renderer\OrthographicsCamera.h" />
     <ClInclude Include="src\Reptile\Renderer\Renderer.h" />
     <ClInclude Include="src\Reptile\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Reptile\Renderer\RendererCommand.h" />
@@ -594,6 +595,7 @@
     <ClCompile Include="src\Reptile\LayerStack.cpp" />
     <ClCompile Include="src\Reptile\Log.cpp" />
     <ClCompile Include="src\Reptile\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Reptile\Renderer\OrthographicsCamera.cpp" />
     <ClCompile Include="src\Reptile\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Reptile\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Reptile\Renderer\RendererCommand.cpp" />
