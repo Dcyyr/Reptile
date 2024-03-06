@@ -1,6 +1,7 @@
 #pragma once
 #include"Reptile/Core.h"
 #include"Reptile/Events/Event.h"
+#include"Reptile/Core/Timestep.h"
 
 namespace Reptile {
 
@@ -13,7 +14,7 @@ namespace Reptile {
 
 		virtual void OnAttach(){}
 		virtual void OnDetach(){}
-		virtual void OnUpdate(){}
+		virtual void OnUpdate(Timestep ts){}
 		virtual void OnImGuiRender(){}
 		virtual void OnEvent(Event& event) {}
 

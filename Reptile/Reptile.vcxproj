@@ -141,6 +141,7 @@
     <ClInclude Include="src\Reptile.h" />
     <ClInclude Include="src\Reptile\Application.h" />
     <ClInclude Include="src\Reptile\Core.h" />
+    <ClInclude Include="src\Reptile\Core\Timestep.h" />
     <ClInclude Include="src\Reptile\EntryPoint.h" />
     <ClInclude Include="src\Reptile\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Reptile\Events\Event.h" />

@@ -5,6 +5,8 @@
 #include"Reptile/Log.h"
 #include"Reptile/Layer.h"
 
+#include"Reptile/Core/Timestep.h"
+
 #include"Reptile/Input.h"
 #include"Reptile/KeyCodes.h"
 #include"Reptile/MouseButtonCodes.h"
