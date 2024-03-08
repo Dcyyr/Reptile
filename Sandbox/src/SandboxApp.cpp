@@ -21,7 +21,7 @@ public:
 			 0.0f, 0.5f,0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		std::shared_ptr<Reptile::VertexBuffer> vertexBuffer;
+		Reptile::Ref<Reptile::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Reptile::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 		Reptile::BufferLayout layout = {
@@ -34,7 +34,7 @@ public:
 
 
 		uint32_t indices[3] = { 0,1,2 };
-		std::shared_ptr<Reptile::IndexBuffer> indexBuffer;
+		Reptile::Ref<Reptile::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Reptile::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -47,7 +47,7 @@ public:
 			-0.75f, 0.75f,0.0f
 		};
 
-		std::shared_ptr<Reptile::VertexBuffer> squareVB;
+		Reptile::Ref<Reptile::VertexBuffer> squareVB;
 		squareVB.reset(Reptile::VertexBuffer::Create(squareVerices, sizeof(squareVerices)));
 		squareVB->SetLayout({
 			{Reptile::ShaderDataType::Float3,"a_Position"}
@@ -56,7 +56,7 @@ public:
 
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<Reptile::IndexBuffer> squareIB;
+		Reptile::Ref<Reptile::IndexBuffer> squareIB;
 		squareIB.reset(Reptile::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -204,11 +204,11 @@ public:
 	}
 
 private:
-		std::shared_ptr<Reptile::Shader> m_Shader;
-		std::shared_ptr<Reptile::VertexArray> m_VertexArray;
+		Reptile::Ref<Reptile::Shader> m_Shader;
+		Reptile::Ref<Reptile::VertexArray> m_VertexArray;
 
-		std::shared_ptr<Reptile::VertexArray> m_SquareVA;
-		std::shared_ptr<Reptile::Shader> m_FlatColorShader;
+		Reptile::Ref<Reptile::VertexArray> m_SquareVA;
+		Reptile::Ref<Reptile::Shader> m_FlatColorShader;
 		Reptile::OrthographicsCamera m_Camera;
 
 		glm::vec3 m_CameraPosition;
