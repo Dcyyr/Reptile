@@ -1,5 +1,6 @@
 #pragma once
 
+#include<memory>
 
 #ifdef RP_PLATFORM_WINDOWS//÷ª  ”√”⁄windows
 
@@ -28,3 +29,13 @@
 #define BIT(x) (1 << x)
 
 #define RP_BIND_EVENT_FN(fn) std::bind(&fn,this,std::placeholders::_1)
+
+
+namespace Reptile
+{
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+}

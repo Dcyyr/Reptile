@@ -1363,6 +1363,7 @@
     <ClInclude Include="src\Reptile\Renderer\RendererCommand.h" />
     <ClInclude Include="src\Reptile\Renderer\OrthographicsCamera.h" />
     <ClInclude Include="src\Reptile\Core\Timestep.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -1403,5 +1404,6 @@
     <ClCompile Include="src\Reptile\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Reptile\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\Reptile\Renderer\OrthographicsCamera.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>
