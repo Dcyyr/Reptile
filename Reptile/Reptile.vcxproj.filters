@@ -7,17 +7,26 @@
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Platform\OpenGL">
+      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform\Windows">
       <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Reptile">
       <UniqueIdentifier>{313CE6A8-9DF1-5E9E-26E6-5875929A55A2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Reptile\Core">
+      <UniqueIdentifier>{29A7F193-15A0-10E6-3ED2-F56A2A2AF0F1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Reptile\Events">
       <UniqueIdentifier>{F5261A5C-E10A-DBB1-4A6B-D504366EC533}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Reptile\ImGui">
       <UniqueIdentifier>{1B529112-8768-8FA8-D0DF-1ACA3C356030}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Reptile\Renderer">
+      <UniqueIdentifier>{F7C63AC2-E355-C48B-8C74-D88678E2D431}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
@@ -40,8 +49,29 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
     </ClInclude>
@@ -56,6 +86,9 @@
     </ClInclude>
     <ClInclude Include="src\Reptile\Core.h">
       <Filter>src\Reptile</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Core\Timestep.h">
+      <Filter>src\Reptile\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Reptile\EntryPoint.h">
       <Filter>src\Reptile</Filter>
@@ -92,6 +125,33 @@
     </ClInclude>
     <ClInclude Include="src\Reptile\MouseButtonCodes.h">
       <Filter>src\Reptile</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Renderer\Buffer.h">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Renderer\GraphicsContext.h">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Renderer\OrthographicsCamera.h">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Renderer\Renderer.h">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Renderer\RendererAPI.h">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Renderer\RendererCommand.h">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Renderer\Shader.h">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Renderer\Texture.h">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Renderer\VertexArray.h">
+      <Filter>src\Reptile\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Reptile\Timer.h">
       <Filter>src\Reptile</Filter>
@@ -1350,22 +1410,29 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Reptile\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\Reptile\Renderer\Shader.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\Reptile\Renderer\Buffer.h" />
-    <ClInclude Include="src\Reptile\Renderer\Renderer.h" />
-    <ClInclude Include="src\Reptile\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\Reptile\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\Reptile\Renderer\RendererCommand.h" />
-    <ClInclude Include="src\Reptile\Renderer\OrthographicsCamera.h" />
-    <ClInclude Include="src\Reptile\Core\Timestep.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1390,20 +1457,35 @@
     <ClCompile Include="src\Reptile\Log.cpp">
       <Filter>src\Reptile</Filter>
     </ClCompile>
+    <ClCompile Include="src\Reptile\Renderer\Buffer.cpp">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Renderer\OrthographicsCamera.cpp">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Renderer\Renderer.cpp">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Renderer\RendererAPI.cpp">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Renderer\RendererCommand.cpp">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Renderer\Shader.cpp">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Renderer\Texture.cpp">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Renderer\VertexArray.cpp">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\rppch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\Reptile\Renderer\Shader.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="src\Reptile\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\Reptile\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Reptile\Renderer\VertexArray.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\Reptile\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="src\Reptile\Renderer\RendererCommand.cpp" />
-    <ClCompile Include="src\Reptile\Renderer\OrthographicsCamera.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

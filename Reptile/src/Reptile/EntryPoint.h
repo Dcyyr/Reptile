@@ -4,7 +4,7 @@
 
 extern Reptile::Application* Reptile::CreateApplication();
 
-int main(int argc,char**argv)
+int main()
 {
 	Reptile::Log::Init();
 	RP_CORE_WARN("Initialized Log!");

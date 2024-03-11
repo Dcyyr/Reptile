@@ -16,6 +16,7 @@ workspace "Reptile"
 	IncludeDir["Glad"]  = "Reptile/vendor/Glad/include"
 	IncludeDir["ImGui"] = "Reptile/vendor/imgui"
 	IncludeDir["glm"]   = "Reptile/vendor/glm"
+	IncludeDir["stb_image"] = "Reptile/vendor/stb_image"
 
 
 	group "Dependencies"
@@ -46,6 +47,8 @@ workspace "Reptile"
 		{
 			"%{prj.name}/src/**.h",
 			"%{prj.name}/src/**.cpp",
+			"%{prj.name}/vendor/stb_image/**.h",
+			"%{prj.name}/vendor/stb_image/**.cpp",
 			"%{prj.name}/vendor/glm/glm/**.hpp",
 			"%{prj.name}/vendor/glm/glm/**.inl"
 		}
@@ -62,8 +65,8 @@ workspace "Reptile"
 			"%{IncludeDir.GLFW}",
 			"%{IncludeDir.Glad}",
 			"%{IncludeDir.ImGui}",
-			"%{IncludeDir.glm}"
-
+			"%{IncludeDir.glm}",
+			"%{IncludeDir.stb_image}"
 			
 		}
 

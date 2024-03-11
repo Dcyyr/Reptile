@@ -21,6 +21,7 @@
 
 #include"Reptile/Renderer/Buffer.h"
 #include"Reptile/Renderer/VertexArray.h"
+#include"Reptile/Renderer/Texture.h"
 #include"Reptile/Renderer/Shader.h"
 
 #include"Reptile/Renderer/OrthographicsCamera.h"
