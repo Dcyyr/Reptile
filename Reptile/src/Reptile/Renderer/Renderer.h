@@ -11,6 +11,8 @@ namespace Reptile {
 	class Renderer
 	{
 	public:
+		static void Init();
+
 		static void BeginScene(OrthographicsCamera& camera);
 		static void EndScene();
 

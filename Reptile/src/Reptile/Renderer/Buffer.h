@@ -120,7 +120,6 @@ namespace Reptile {
 		virtual void SetLayout(const BufferLayout& layout) = 0;
 
 		static VertexBuffer* Create(float* vertices, uint32_t size);
-	private:
 		
 	};
 

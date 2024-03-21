@@ -25,6 +25,7 @@ namespace Reptile {
 		m_Layers.emplace_back(overlay);
 	}
 
+
 	void LayerStack::PopLayer(Layer* layer)
 	{
 		auto it = std::find(m_Layers.begin(), m_Layers.end(), layer);

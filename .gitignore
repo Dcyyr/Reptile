@@ -5,3 +5,6 @@ bin-int/
 
 #文件
 *.user
+
+#Cmake files
+Makefile
