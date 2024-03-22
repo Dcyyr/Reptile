@@ -101,7 +101,7 @@ public:
 
 		)";
 
-		m_Shader.reset(Reptile::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Reptile::Shader::Create("VertexPosColor",vertexSrc, fragmentSrc);
 
 
 		std::string flatShaderVertexSrc = R"(
@@ -138,17 +138,17 @@ public:
 				}
 			
 		)";
-		m_FlatColorShader.reset(Reptile::Shader::Create(flatShaderVertexSrc,flatShaderFragmentSrc));
+		m_FlatColorShader = Reptile::Shader::Create("FlatColor",flatShaderVertexSrc, flatShaderFragmentSrc);
 
 		
-		m_TextureShader.reset(Reptile::Shader::Create("assets/shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 		
 
 		m_Texture = Reptile::Texture2D::Create("assets/textures/1.png");
 		m_Texture2 = Reptile::Texture2D::Create("assets/textures/2.png");
 
-		std::dynamic_pointer_cast<Reptile::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Reptile::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Reptile::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Reptile::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	
@@ -195,12 +195,13 @@ public:
 			
 			}
 		}
+		auto textureShader = m_ShaderLibrary.Get("Texture");
 
 		m_Texture->Bind();
-		Reptile::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Reptile::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		m_Texture2->Bind();
-		Reptile::Renderer::Submit(m_TextureShader, m_SquareVA,glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Reptile::Renderer::Submit(textureShader, m_SquareVA,glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		//triangle
 		//Reptile::Renderer::Submit(m_Shader, m_VertexArray);	
@@ -222,22 +223,23 @@ public:
 	}
 
 private:
-		Reptile::Ref<Reptile::Shader> m_Shader;
-		Reptile::Ref<Reptile::VertexArray> m_VertexArray;
+	Reptile::ShaderLibrary m_ShaderLibrary;
+	Reptile::Ref<Reptile::Shader> m_Shader;
+	Reptile::Ref<Reptile::VertexArray> m_VertexArray;
 
-		Reptile::Ref<Reptile::VertexArray> m_SquareVA;
-		Reptile::Ref<Reptile::Shader> m_FlatColorShader,m_TextureShader;
-		Reptile::Ref<Reptile::Texture2D> m_Texture,m_Texture2;
-		
-		Reptile::OrthographicsCamera m_Camera;
+	Reptile::Ref<Reptile::VertexArray> m_SquareVA;
+	Reptile::Ref<Reptile::Shader> m_FlatColorShader;
+	Reptile::Ref<Reptile::Texture2D> m_Texture,m_Texture2;
+	
+	Reptile::OrthographicsCamera m_Camera;
 
-		glm::vec3 m_CameraPosition;
-		float m_CameraMoveSpeed = 3.0f;
+	glm::vec3 m_CameraPosition;
+	float m_CameraMoveSpeed = 3.0f;
 
-		float m_CameraRotaion = 0.0f;
-		float m_CameraRotaionSpeed = 60.0f;
+	float m_CameraRotaion = 0.0f;
+	float m_CameraRotaionSpeed = 60.0f;
 
-		glm::vec3 m_SquareColor = { 0.2f,0.3f,0.8f };
+	glm::vec3 m_SquareColor = { 0.2f,0.3f,0.8f };
 };
 
 class Sandbox :public Reptile::Application
