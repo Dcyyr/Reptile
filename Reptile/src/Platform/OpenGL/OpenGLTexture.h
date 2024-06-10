@@ -1,6 +1,6 @@
 #pragma once
 
-#include"Reptile/Renderer/Texture.h"
+#include "Reptile/Renderer/Texture.h"
 
 namespace Reptile {
 
@@ -19,4 +19,5 @@ namespace Reptile {
 		uint32_t m_Width, m_Height;
 		uint32_t m_RendererID;
 	};
+
 }

@@ -1,13 +1,14 @@
 #pragma once
 
-#include"Reptile/Renderer/Shader.h"
-#include<glm/glm.hpp>
+#include "Reptile/Renderer/Shader.h"
+#include <glm/glm.hpp>
 
+// TODO: REMOVE!
 typedef unsigned int GLenum;
 
 namespace Reptile {
 
-	class OpenGLShader :public Shader
+	class OpenGLShader : public Shader
 	{
 	public:
 		OpenGLShader(const std::string& filepath);
@@ -17,9 +18,10 @@ namespace Reptile {
 		virtual void Bind() const override;
 		virtual void Unbind() const override;
 
-		virtual const std::string& GetName()const override { return m_Name; }
+		virtual const std::string& GetName() const override { return m_Name; }
 
 		void UploadUniformInt(const std::string& name, int value);
+
 		void UploadUniformFloat(const std::string& name, float value);
 		void UploadUniformFloat2(const std::string& name, const glm::vec2& value);
 		void UploadUniformFloat3(const std::string& name, const glm::vec3& value);
@@ -30,9 +32,10 @@ namespace Reptile {
 	private:
 		std::string ReadFile(const std::string& filepath);
 		std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
-		void Compile(const std::unordered_map<GLenum, std::string>& shaderSources);;
+		void Compile(const std::unordered_map<GLenum, std::string>& shaderSources);
 	private:
 		uint32_t m_RendererID;
 		std::string m_Name;
 	};
+
 }

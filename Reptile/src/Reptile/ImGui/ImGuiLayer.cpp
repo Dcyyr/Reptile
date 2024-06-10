@@ -5,41 +5,36 @@
 
 #include"backends/imgui_impl_glfw.h"
 #include"backends/imgui_impl_opengl3.h"
-#include"Reptile/Application.h"
+#include"Reptile/Core/Application.h"
 
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
 
-
 namespace Reptile {
 
 	ImGuiLayer::ImGuiLayer()
-		:Layer("ImGuiLayer")
-	{
-	}
-
-	ImGuiLayer::~ImGuiLayer()
+		: Layer("ImGuiLayer")
 	{
 	}
 
 	void ImGuiLayer::OnAttach()
 	{
-		//setup dear Imgui context
+		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; //启用键盘控制
-		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;//启用游戏手柄控制
-		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable; //启用停靠
-		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; //启用多视口/平台窗口
-		
-		//设置imgui风格
+		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
+		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
+		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
+		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
+		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
+
+		// Setup Dear ImGui style
 		ImGui::StyleColorsDark();
 		//ImGui::StyleColorsClassic();
-		//ImGui::StyleColorsLight();
 
-
-		//启用视口后，我们将调整 WindowRounding/WindowBg 使平台窗口看起来与普通窗口相同。
+		// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
 		ImGuiStyle& style = ImGui::GetStyle();
 		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 		{
@@ -50,7 +45,7 @@ namespace Reptile {
 		Application& app = Application::Get();
 		GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
 
-		//设置平台/渲染器绑定
+		// Setup Platform/Renderer bindings
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
 		ImGui_ImplOpenGL3_Init("#version 410");
 	}
@@ -72,11 +67,10 @@ namespace Reptile {
 	void ImGuiLayer::End()
 	{
 		ImGuiIO& io = ImGui::GetIO();
-
 		Application& app = Application::Get();
 		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
-		//渲染
+		// Rendering
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 

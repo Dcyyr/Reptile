@@ -1,17 +1,17 @@
-#include"rppch.h"
-#include"Application.h"
+#include "RPpch.h"
+#include "Application.h"
 
+#include "Reptile/Core/Log.h"
 
-#include"Reptile/Log.h"
-#include"Reptile/Input.h"
+#include "Reptile/Renderer/Renderer.h"
 
+#include "Input.h"
 
-#include"Reptile/Renderer/Renderer.h"
-#include<GLFW/glfw3.h>
+#include <glfw/glfw3.h>
 
-namespace Reptile{
+namespace Reptile {
 
-#define BIND_EVENT_FN(x) std::bind(&Application::x,this,std::placeholders::_1)
+	#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
 
@@ -27,32 +27,25 @@ namespace Reptile{
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
-
-	}
-
-	Application::~Application()
-	{
-
 	}
 
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
-		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
-		layer->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-		
-		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
+		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
+
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{
 			(*--it)->OnEvent(e);
 			if (e.Handled)
@@ -64,13 +57,15 @@ namespace Reptile{
 	{
 		while (m_Running)
 		{
-
 			float time = (float)glfwGetTime();
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
-			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate(timestep);
+			if (!m_Minimized)
+			{
+				for (Layer* layer : m_LayerStack)
+					layer->OnUpdate(timestep);
+			}
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
@@ -78,9 +73,7 @@ namespace Reptile{
 			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
-			
 		}
-		
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
@@ -89,5 +82,18 @@ namespace Reptile{
 		return true;
 	}
 
-}
+	bool Application::OnWindowResize(WindowResizeEvent& e)
+	{
+		if (e.GetWidth() == 0 || e.GetHeight() == 0)
+		{
+			m_Minimized = true;
+			return false;
+		}
 
+		m_Minimized = false;
+		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+
+		return false;
+	}
+
+}

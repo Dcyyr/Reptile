@@ -1,18 +1,18 @@
-#include"rppch.h"
-#include"OpenGLTexture.h"
+#include "rppch.h"
+#include "OpenGLTexture.h"
 
 #include "stb_image.h"
+
 #include <glad/glad.h>
 
 namespace Reptile {
 
 	OpenGLTexture2D::OpenGLTexture2D(const std::string& path)
-		:m_Path(path)
+		: m_Path(path)
 	{
-
 		int width, height, channels;
 		stbi_set_flip_vertically_on_load(1);
-		stbi_uc* data =  stbi_load(path.c_str(), &width, &height, &channels, 0);
+		stbi_uc* data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 		RP_CORE_ASSERT(data, "Failed to load image!");
 		m_Width = width;
 		m_Height = height;
@@ -28,6 +28,7 @@ namespace Reptile {
 			internalFormat = GL_RGB8;
 			dataFormat = GL_RGB;
 		}
+
 		RP_CORE_ASSERT(internalFormat & dataFormat, "Format not supported!");
 
 		glCreateTextures(GL_TEXTURE_2D, 1, &m_RendererID);
@@ -48,6 +49,6 @@ namespace Reptile {
 
 	void OpenGLTexture2D::Bind(uint32_t slot) const
 	{
-		glBindTextureUnit(slot,m_RendererID);
+		glBindTextureUnit(slot, m_RendererID);
 	}
 }

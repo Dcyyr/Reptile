@@ -1,21 +1,20 @@
 #pragma once
 
-#include"Reptile/Renderer/GraphicsContext.h"
+#include "Reptile/Renderer/GraphicsContext.h"
 
 struct GLFWwindow;
 
 namespace Reptile {
 
-	class OpenGLContext :public GraphicsContext
+	class OpenGLContext : public GraphicsContext
 	{
 	public:
 		OpenGLContext(GLFWwindow* windowHandle);
 
-		virtual void Init();
-		virtual void SwapBuffer();
-
+		virtual void Init() override;
+		virtual void SwapBuffers() override;
 	private:
 		GLFWwindow* m_WindowHandle;
-
 	};
+
 }

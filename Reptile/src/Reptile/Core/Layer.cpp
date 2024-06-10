@@ -9,8 +9,5 @@ namespace Reptile {
 
 	}
 
-	Layer::~Layer()
-	{
 
-	}
 }

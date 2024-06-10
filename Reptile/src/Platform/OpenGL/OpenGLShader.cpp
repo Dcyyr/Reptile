@@ -25,7 +25,7 @@ namespace Reptile {
 		auto shaderSources = PreProcess(source);
 		Compile(shaderSources);
 
-		//Extract name from filepath
+		// Extract name from filepath
 		auto lastSlash = filepath.find_last_of("/\\");
 		lastSlash = lastSlash == std::string::npos ? 0 : lastSlash + 1;
 		auto lastDot = filepath.rfind('.');
@@ -34,7 +34,7 @@ namespace Reptile {
 	}
 
 	OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
-		:m_Name(name)
+		: m_Name(name)
 	{
 		std::unordered_map<GLenum, std::string> sources;
 		sources[GL_VERTEX_SHADER] = vertexSrc;
@@ -95,7 +95,7 @@ namespace Reptile {
 	{
 		GLuint program = glCreateProgram();
 		RP_CORE_ASSERT(shaderSources.size() <= 2, "We only support 2 shaders for now");
-		std::array<GLenum,2> glShaderIDs;
+		std::array<GLenum, 2> glShaderIDs;
 		int glShaderIDIndex = 0;
 		for (auto& kv : shaderSources)
 		{

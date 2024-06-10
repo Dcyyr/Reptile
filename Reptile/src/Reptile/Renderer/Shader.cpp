@@ -1,14 +1,13 @@
-#include"rppch.h"
-#include"Shader.h"
+#include "rppch.h"
+#include "Shader.h"
 
-#include"Renderer.h"
-#include"Platform/OpenGL/OpenGLShader.h"
+#include "Renderer.h"
+#include "Platform/OpenGL/OpenGLShader.h"
 
 namespace Reptile {
 
 	Ref<Shader> Shader::Create(const std::string& filepath)
 	{
-
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    RP_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
@@ -21,11 +20,10 @@ namespace Reptile {
 
 	Ref<Shader> Shader::Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
 	{
-
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:    RP_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(name,vertexSrc,fragmentSrc);
+		case RendererAPI::API::OpenGL:  return std::make_shared<OpenGLShader>(name, vertexSrc, fragmentSrc);
 		}
 
 		RP_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -56,7 +54,6 @@ namespace Reptile {
 		auto shader = Shader::Create(filepath);
 		Add(name, shader);
 		return shader;
-
 	}
 
 	Reptile::Ref<Reptile::Shader> ShaderLibrary::Get(const std::string& name)

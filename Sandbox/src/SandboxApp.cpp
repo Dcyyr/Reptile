@@ -11,7 +11,7 @@ class ExampleLayer : public Reptile::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_CameraController(1600.0f / 900.0f)
+		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
 		m_VertexArray.reset(Reptile::VertexArray::Create());
 

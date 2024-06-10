@@ -1,8 +1,8 @@
-#include"rppch.h"
-#include"WindowsInput.h"
+#include "rppch.h"
+#include "WindowsInput.h"
 
-#include"Reptile/Application.h"
-#include<GLFW/glfw3.h>
+#include "Reptile/Core/Application.h"
+#include <GLFW/glfw3.h>
 
 namespace Reptile {
 
@@ -21,19 +21,18 @@ namespace Reptile {
 		auto state = glfwGetMouseButton(window, button);
 		return state == GLFW_PRESS;
 	}
-	 
-	std::pair<float, float>WindowsInput::GetMousePositionImpl()
+
+	std::pair<float, float> WindowsInput::GetMousePositionImpl()
 	{
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		double xpos, ypos;
 		glfwGetCursorPos(window, &xpos, &ypos);
 
-		return{ (float)xpos,(float)ypos };
+		return { (float)xpos, (float)ypos };
 	}
 
 	float WindowsInput::GetMouseXImpl()
 	{
-		//C++17Ьиад
 		auto [x, y] = GetMousePositionImpl();
 		return x;
 	}
@@ -43,4 +42,5 @@ namespace Reptile {
 		auto [x, y] = GetMousePositionImpl();
 		return y;
 	}
+
 }

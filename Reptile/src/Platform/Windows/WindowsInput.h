@@ -1,16 +1,18 @@
 #pragma once
 
-#include"Reptile/Input.h"
+#include "Reptile/Core/Input.h"
 
 namespace Reptile {
 
-	class WindowsInput :public Input
+	class WindowsInput : public Input
 	{
 	protected:
 		virtual bool IsKeyPressedImpl(int keycode) override;
+
 		virtual bool IsMouseButtonPressedImpl(int button) override;
-		virtual std::pair<float, float>GetMousePositionImpl()override;
+		virtual std::pair<float, float> GetMousePositionImpl() override;
 		virtual float GetMouseXImpl() override;
 		virtual float GetMouseYImpl() override;
 	};
+
 }

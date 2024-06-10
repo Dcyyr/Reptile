@@ -1,11 +1,11 @@
-#include "rppch.h"
+#include "RPpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Reptile/Input.h"
-#include "Reptile/KeyCodes.h"
-
+#include "Reptile/Core/Input.h"
+#include "Reptile/Core/KeyCodes.h"
 
 namespace Reptile {
+
 	OrthographicCameraController::OrthographicCameraController(float aspectRatio, bool rotation)
 		: m_AspectRatio(aspectRatio), m_Camera(-m_AspectRatio * m_ZoomLevel, m_AspectRatio* m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel), m_Rotation(rotation)
 	{
@@ -59,4 +59,5 @@ namespace Reptile {
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 		return false;
 	}
+
 }

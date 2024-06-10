@@ -1,7 +1,7 @@
-#include"rppch.h"
-#include"OrthographicsCamera.h"
+#include "rppch.h"
+#include "OrthographicsCamera.h"
 
-#include<glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 namespace Reptile {
 

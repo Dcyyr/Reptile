@@ -1,8 +1,9 @@
-#include"rppch.h"
-#include"Buffer.h"
-#include"Renderer.h"
+#include "RPpch.h"
+#include "Buffer.h"
 
-#include"Platform/OpenGL/OpenGLBuffer.h"
+#include "Renderer.h"
+
+#include "Platform/OpenGL/OpenGLBuffer.h"
 
 namespace Reptile {
 
@@ -10,11 +11,11 @@ namespace Reptile {
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::API::None:	       RP_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:      return new OpenGLVertexBuffer(vertices,size);
+		case RendererAPI::API::None:    RP_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL:  return new OpenGLVertexBuffer(vertices, size);
 		}
 
-
+		RP_CORE_ASSERT(false, "Unknown RendererAPI!");
 		return nullptr;
 	}
 
@@ -22,10 +23,11 @@ namespace Reptile {
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::API::None:        RP_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::API::OpenGL:      return new OpenGLIndexBuffer(indices, size);
+		case RendererAPI::API::None:    RP_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL:  return new OpenGLIndexBuffer(indices, size);
 		}
-		RP_CORE_ASSERT(false, "Unknown RendererAPI");
+
+		RP_CORE_ASSERT(false, "Unknown RendererAPI!");
 		return nullptr;
 	}
 

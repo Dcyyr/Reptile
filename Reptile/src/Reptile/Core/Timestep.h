@@ -3,7 +3,7 @@
 
 namespace Reptile {
 
-	class Timestep//这个可以让屏幕60hz，144hz看到同样的移动速率(w,a,s,d)，不会改变对应刷新率的每帧毫秒数
+	class Timestep//这个可以让屏幕60RP，144RP看到同样的移动速率(w,a,s,d)，不会改变对应刷新率的每帧毫秒数
 	{
 	public:
 		Timestep(float time = 0)

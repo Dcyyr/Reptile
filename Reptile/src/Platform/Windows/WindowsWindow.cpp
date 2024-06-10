@@ -38,7 +38,7 @@ namespace Reptile {
 		m_Data.Height = props.Height;
 
 		RP_CORE_INFO("正在创建窗口{0}({1},{2})", props.Title, props.Width, props.Height);
-		
+
 
 		if (!s_GLFWInitialized)
 		{
@@ -50,7 +50,7 @@ namespace Reptile {
 			s_GLFWInitialized = true;
 		}
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		
+
 		m_Context = new OpenGLContext(m_Window);
 		m_Context->Init();
 
@@ -59,7 +59,7 @@ namespace Reptile {
 
 		//Set glfw Callback
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
-		{
+			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 				data.Width = width;
 				data.Height = height;
@@ -67,17 +67,17 @@ namespace Reptile {
 				WindowResizeEvent event(width, height);
 				data.EventCallback(event);
 
-		});
+			});
 
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
-		{
+			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 				WindowCloseEvent event;
 				data.EventCallback(event);
-		});
+			});
 
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
-		{
+			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
 				switch (action)
@@ -103,20 +103,20 @@ namespace Reptile {
 					break;
 				}
 				}
-		});
+			});
 
-		glfwSetCharCallback(m_Window, [](GLFWwindow* window,unsigned int keycode) 
-		{
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
+			{
 
-			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-			KeyTypeEvent event(keycode);
-			data.EventCallback(event);
+				KeyTypedEvent event(keycode);
+				data.EventCallback(event);
 
-		});
+			});
 
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
-		{
+			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
 				switch (action)
@@ -137,26 +137,26 @@ namespace Reptile {
 
 				}
 				}
-		});
+			});
 
-		glfwSetScrollCallback(m_Window, [](GLFWwindow*window,double xOffset,double yOffset)
-		{
+		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)
+			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
 				MouseScrolledEvent event((float)xOffset, (float)yOffset);
 				data.EventCallback(event);
 
-		});
-	
+			});
 
-		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window,double xPos,double yPos)
-		{
+
+		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos)
+			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
 				MouseMovedEvent event((float)xPos, (float)yPos);
 				data.EventCallback(event);
 
-		});
+			});
 	}
 
 	void WindowsWindow::Shutdown()
@@ -167,7 +167,7 @@ namespace Reptile {
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		m_Context->SwapBuffer();
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)
@@ -180,7 +180,7 @@ namespace Reptile {
 		m_Data.VSync = enabled;
 	}
 
-	bool WindowsWindow::IsVSync() const 
+	bool WindowsWindow::IsVSync() const
 	{
 		return m_Data.VSync;
 	}
