@@ -1,9 +1,9 @@
-#include <Reptile.h>
-
+#include "Reptile.h"
+#include "Reptile/Core/EntryPoint.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 
 #include "imgui/imgui.h"
-
+#include "Sandbox2D.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
@@ -13,8 +13,7 @@ public:
 	ExampleLayer()
 		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
-		m_VertexArray.reset(Reptile::VertexArray::Create());
-
+		
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
 			 0.5f, -0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
@@ -35,7 +34,7 @@ public:
 		indexBuffer.reset(Reptile::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(Reptile::VertexArray::Create());
+		m_SquareVA = Reptile::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -56,6 +55,7 @@ public:
 		Reptile::Ref<Reptile::IndexBuffer> squareIB;
 		squareIB.reset(Reptile::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
+
 
 		std::string vertexSrc = R"(
 			#version 330 core
@@ -167,8 +167,7 @@ public:
 
 		m_Texture->Bind();
 		Reptile::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
-		m_ChernoLogoTexture->Bind();
-		Reptile::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		
 
 		// Triangle
 		// Reptile::Renderer::Submit(m_Shader, m_VertexArray);
@@ -206,7 +205,7 @@ class Sandbox : public Reptile::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox()

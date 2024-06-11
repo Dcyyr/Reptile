@@ -27,6 +27,3 @@
 #include "Reptile/Renderer/OrthographicsCamera.h"
 // -----------------------------------
 
-// ---Entry Point---------------------
-#include "Reptile/Core/EntryPoint.h"
-// -----------------------------------
