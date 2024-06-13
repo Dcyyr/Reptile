@@ -17,6 +17,7 @@
 
 // ---Renderer------------------------
 #include "Reptile/Renderer/Renderer.h"
+#include "Reptile/Renderer/Renderer2D.h"
 #include "Reptile/Renderer/RendererCommand.h"
 
 #include "Reptile/Renderer/Buffer.h"

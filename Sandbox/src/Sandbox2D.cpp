@@ -4,7 +4,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include"Platform\OpenGL\OpenGLShader.h"
+#include"Platform/OpenGL/OpenGLShader.h"
 
 Sandbox2D::Sandbox2D()
 	:Layer("Sandbox2D"),m_CameraController(1600.0f/900.0f)
@@ -14,26 +14,6 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
-	m_SquareVA = Reptile::VertexArray::Create();
-
-	float squareVertices[5 * 4] = {
-		-0.5f, -0.5f, 0.0f,
-		 0.5f, -0.5f, 0.0f,
-		 0.5f,  0.5f, 0.0f,
-		-0.5f,  0.5f, 0.0f
-	};
-
-	Reptile::Ref<Reptile::VertexBuffer> squareVB;
-	squareVB.reset(Reptile::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
-	squareVB->SetLayout({ {Reptile::ShaderDataType::Float3, "a_Position" } });
-	m_SquareVA->AddVertexBuffer(squareVB);
-
-	uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-	Reptile::Ref<Reptile::IndexBuffer> squareIB;
-	squareIB.reset(Reptile::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
-	m_SquareVA->SetIndexBuffer(squareIB);
-	m_FlatColorShader = Reptile::Shader::Create("assets/shaders/FlatColor.glsl");
-
 }
 
 void Sandbox2D::OnDetach()
@@ -50,19 +30,12 @@ void Sandbox2D::OnUpdate(Reptile::Timestep ts)
 {
 	// Update
 	m_CameraController.OnUpdate(ts);
-
-	// Render
 	Reptile::RendererCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 	Reptile::RendererCommand::Clear();
-
-	Reptile::Renderer::BeginScene(m_CameraController.GetCamera());
-
-	std::dynamic_pointer_cast<Reptile::OpenGLShader>(m_FlatColorShader)->Bind();
-	std::dynamic_pointer_cast<Reptile::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat4("u_Color", m_SquareColor);
-
-	Reptile::Renderer::Submit(m_FlatColorShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
-
-	Reptile::Renderer::EndScene();
+	// Render
+	Reptile::Renderer2D::BeginScene(m_CameraController.GetCamera());
+	Reptile::Renderer2D::DrawQuad({ 0.0f,0.0f }, { 1.0f,1.0f }, { 0.8f,0.2f,0.3f,1.0f });
+	Reptile::Renderer2D::EndScene();
 }
 
 void Sandbox2D::OnImGuiRender()

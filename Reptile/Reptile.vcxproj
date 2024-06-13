@@ -163,6 +163,7 @@
     <ClInclude Include="src\Reptile\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\Reptile\Renderer\OrthographicsCamera.h" />
     <ClInclude Include="src\Reptile\Renderer\Renderer.h" />
+    <ClInclude Include="src\Reptile\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Reptile\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Reptile\Renderer\RendererCommand.h" />
     <ClInclude Include="src\Reptile\Renderer\Shader.h" />
@@ -606,6 +607,7 @@
     <ClCompile Include="src\Reptile\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\Reptile\Renderer\OrthographicsCamera.cpp" />
     <ClCompile Include="src\Reptile\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Reptile\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Reptile\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Reptile\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\Reptile\Renderer\Shader.cpp" />
