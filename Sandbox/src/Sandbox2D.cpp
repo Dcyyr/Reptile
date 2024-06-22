@@ -13,6 +13,7 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
+	m_CheckboardTexture = Reptile::Texture2D::Create("assets/textures/1.png");
 }
 
 void Sandbox2D::OnDetach()
@@ -35,6 +36,8 @@ void Sandbox2D::OnUpdate(Reptile::Timestep ts)
 	Reptile::Renderer2D::BeginScene(m_CameraController.GetCamera());
 	Reptile::Renderer2D::DrawQuad({ -1.0f,0.0f }, { 0.5f,0.8f }, { 0.9f,0.4f,0.3f,1.0f });
 	Reptile::Renderer2D::DrawQuad({ 0.5f,-0.5f }, { 1.0f,1.0f }, { 0.8f,0.2f,0.3f,1.0f });
+	Reptile::Renderer2D::DrawQuad({ 0.0f,0.0f,-0.1f }, { 10.0f,10.0f }, m_CheckboardTexture);
+
 	Reptile::Renderer2D::EndScene();
 }
 

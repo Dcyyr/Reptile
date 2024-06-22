@@ -19,6 +19,7 @@ private:
 
 	Reptile::Ref<Reptile::VertexArray>m_SquareVA;
 	Reptile::Ref<Reptile::Shader> m_FlatColorShader;
+	Reptile::Ref<Reptile::Texture2D> m_CheckboardTexture;
 
 	glm::vec4 m_SquareColor = { 0.2f,0.3f,0.8f,1.0f };
 
