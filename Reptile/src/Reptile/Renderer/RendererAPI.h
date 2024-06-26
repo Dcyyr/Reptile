@@ -4,6 +4,7 @@
 #include<glm/glm.hpp>
 
 namespace Reptile {
+
 	class RendererAPI
 	{
 	public:
