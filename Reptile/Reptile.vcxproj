@@ -153,6 +153,7 @@
     <ClInclude Include="src\Reptile\Core\Timer.h" />
     <ClInclude Include="src\Reptile\Core\Timestep.h" />
     <ClInclude Include="src\Reptile\Core\Window.h" />
+    <ClInclude Include="src\Reptile\Debug\Instrumentor.h" />
     <ClInclude Include="src\Reptile\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Reptile\Events\Event.h" />
     <ClInclude Include="src\Reptile\Events\KeyEvent.h" />

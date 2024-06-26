@@ -5,7 +5,7 @@
 
 namespace Reptile {
 
-	class REPTILE_API Timer
+	class  Timer
 	{
 	public:
 		Timer()
