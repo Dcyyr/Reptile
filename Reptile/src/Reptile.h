@@ -6,6 +6,8 @@
 #include "Reptile/Core/Layer.h"
 #include "Reptile/Core/Log.h"
 
+#include "Reptile/Debug/Instrumentor.h"
+
 #include "Reptile/Core/Timestep.h"
 
 #include "Reptile/Core/Input.h"
