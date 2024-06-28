@@ -17,6 +17,7 @@ namespace Reptile {
 
 	Application::Application()
 	{
+		RP_PROFILE_FUNCTION();
 		RP_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
@@ -28,19 +29,26 @@ namespace Reptile {
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 	}
+	
 
 	void Application::PushLayer(Layer* layer)
 	{
+		RP_PROFILE_FUNCTION();
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
+		RP_PROFILE_FUNCTION();
 		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
+
 	}
 
 	void Application::OnEvent(Event& e)
 	{
+		RP_PROFILE_FUNCTION();
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
@@ -55,21 +63,29 @@ namespace Reptile {
 
 	void Application::Run()
 	{
+		RP_PROFILE_FUNCTION();
 		while (m_Running)
 		{
+			RP_PROFILE_SCOPE("Runloop");
 			float time = (float)glfwGetTime();
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
 			if (!m_Minimized)
 			{
-				for (Layer* layer : m_LayerStack)
-					layer->OnUpdate(timestep);
+				{
+					RP_PROFILE_SCOPE("LayerStack OnUpdate");
+					for (Layer* layer : m_LayerStack)
+						layer->OnUpdate(timestep);
+				}
 			}
 
 			m_ImGuiLayer->Begin();
-			for (Layer* layer : m_LayerStack)
-				layer->OnImGuiRender();
+			{
+				RP_PROFILE_SCOPE("LayStack OnImGuiRender");
+				for (Layer* layer : m_LayerStack)
+					layer->OnImGuiRender();
+			}
 			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
@@ -84,6 +100,7 @@ namespace Reptile {
 
 	bool Application::OnWindowResize(WindowResizeEvent& e)
 	{
+		RP_PROFILE_FUNCTION();
 		if (e.GetWidth() == 0 || e.GetHeight() == 0)
 		{
 			m_Minimized = true;

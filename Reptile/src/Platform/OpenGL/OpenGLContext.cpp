@@ -15,6 +15,7 @@ namespace Reptile {
 
 	void OpenGLContext::Init()
 	{
+		RP_PROFILE_FUNCTION();
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		RP_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -26,6 +27,7 @@ namespace Reptile {
 
 	void OpenGLContext::SwapBuffers()
 	{
+		RP_PROFILE_FUNCTION();
 		glfwSwapBuffers(m_WindowHandle);
 	}
 

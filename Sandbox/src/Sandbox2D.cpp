@@ -13,12 +13,14 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
+	RP_PROFILE_FUNCTION();
 	m_CheckboardTexture = Reptile::Texture2D::Create("assets/textures/1.png");
 }
 
 void Sandbox2D::OnDetach()
 {
-	
+	RP_PROFILE_FUNCTION();
+
 }
 
 void Sandbox2D::OnEvent(Reptile::Event& e)
@@ -31,11 +33,7 @@ void Sandbox2D::OnUpdate(Reptile::Timestep ts)
 {
 	// Update
 		RP_PROFILE_FUNCTION();
-	{
-		RP_PROFILE_SCOPE("CameraController::OnUpdata");
 		m_CameraController.OnUpdate(ts);
-
-	}
 
 	{
 		RP_PROFILE_SCOPE("Renderer Prep");

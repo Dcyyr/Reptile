@@ -15,6 +15,7 @@
 
 #include"Reptile/Core/Log.h"
 
+#include"Reptile/Debug/Instrumentor.h"
 
 #ifdef RP_PLATFORM_WINDOWS
 	#include<Windows.h>

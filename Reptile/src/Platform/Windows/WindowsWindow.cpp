@@ -23,16 +23,21 @@ namespace Reptile {
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
+		RP_PROFILE_FUNCTION();
+
 		Init(props);
 	}
 
 	WindowsWindow::~WindowsWindow()
 	{
+		RP_PROFILE_FUNCTION();
+
 		Shutdown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)
 	{
+		RP_PROFILE_FUNCTION();
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -42,6 +47,8 @@ namespace Reptile {
 
 		if (!s_GLFWInitialized)
 		{
+			RP_PROFILE_SCOPE("glfwInit");
+
 			//glfwTerminate on system shutdown
 			int success = glfwInit();
 			RP_CORE_ASSERT(success, "无法初始化 GLFW！");
@@ -161,17 +168,23 @@ namespace Reptile {
 
 	void WindowsWindow::Shutdown()
 	{
+		RP_PROFILE_FUNCTION();
+
 		glfwDestroyWindow(m_Window);
 	}
 
 	void WindowsWindow::OnUpdate()
 	{
+		RP_PROFILE_FUNCTION();
+
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)
 	{
+		RP_PROFILE_FUNCTION();
+
 		if (enabled)
 			glfwSwapInterval(1);
 		else

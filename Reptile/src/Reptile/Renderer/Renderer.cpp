@@ -9,6 +9,7 @@ namespace Reptile {
 
 	void Renderer::Init()
 	{
+		RP_PROFILE_FUNCTION();
 		RendererCommand::Init();
 		Renderer2D::Init();
 	}
