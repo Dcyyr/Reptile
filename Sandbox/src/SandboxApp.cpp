@@ -20,8 +20,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		Reptile::Ref<Reptile::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(Reptile::VertexBuffer::Create(vertices, sizeof(vertices)));
+		Reptile::Ref<Reptile::VertexBuffer> vertexBuffer = Reptile::VertexBuffer::Create(vertices, sizeof(vertices));
 		Reptile::BufferLayout layout = {
 			{ Reptile::ShaderDataType::Float3, "a_Position" },
 			{ Reptile::ShaderDataType::Float4, "a_Color" }
@@ -30,8 +29,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		Reptile::Ref<Reptile::IndexBuffer> indexBuffer;
-		indexBuffer.reset(Reptile::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		Reptile::Ref<Reptile::IndexBuffer> indexBuffer = Reptile::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA = Reptile::VertexArray::Create();
@@ -43,8 +41,8 @@ public:
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		Reptile::Ref<Reptile::VertexBuffer> squareVB;
-		squareVB.reset(Reptile::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		
+		Reptile::Ref<Reptile::VertexBuffer> squareVB = Reptile::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 		squareVB->SetLayout({
 			{ Reptile::ShaderDataType::Float3, "a_Position" },
 			{ Reptile::ShaderDataType::Float2, "a_TexCoord" }
@@ -52,8 +50,8 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		Reptile::Ref<Reptile::IndexBuffer> squareIB;
-		squareIB.reset(Reptile::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+
+		Reptile::Ref<Reptile::IndexBuffer> squareIB = Reptile::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 
