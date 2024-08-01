@@ -2,7 +2,6 @@
 
 #include "Reptile/Renderer/OrthographicsCamera.h"
 #include "Reptile/Core/Timestep.h"
-
 #include "Reptile/Events/ApplicationEvent.h"
 #include "Reptile/Events/MouseEvent.h"
 
@@ -11,7 +10,7 @@ namespace Reptile {
 	class OrthographicCameraController
 	{
 	public:
-		OrthographicCameraController(float aspectRatio, bool rotation = false);
+		OrthographicCameraController(float aspectRatio, bool rotation = true);
 
 		void OnUpdate(Timestep ts);
 		void OnEvent(Event& e);
