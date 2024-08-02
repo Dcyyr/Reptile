@@ -42,13 +42,18 @@ void Sandbox2D::OnUpdate(Reptile::Timestep ts)
 	}
 	// Render
 	{
+		static float rotation = 0.0f;
+		rotation += ts*50.0f;
+
 		RP_PROFILE_SCOPE("Renderer Draw");
 		Reptile::Renderer2D::BeginScene(m_CameraController.GetCamera());
-		//Reptile::Renderer2D::DrawRotatedQuad({ -1.0f,0.0f }, { 0.5f,0.8f },glm::radians(-45.0f), { 0.9f,0.4f,0.3f,1.0f });
+		Reptile::Renderer2D::DrawRotatedQuad({ -1.0f,0.0f }, { 0.5f,0.8f },glm::radians(-45.0f), { 0.9f,0.4f,0.3f,1.0f });
 		Reptile::Renderer2D::DrawQuad({ -1.0f,0.0f }, { 0.8f,0.8f }, { 0.8f,0.2f,0.3f,1.0f });
 		Reptile::Renderer2D::DrawQuad({ 0.5f,-0.5f }, { 1.0f,1.0f }, m_SquareColor);
 		Reptile::Renderer2D::DrawQuad({ -5.0f,-5.0f,-0.1f }, { 10.0f,10.0f },m_CheckboardTexture,10.0f);
 		Reptile::Renderer2D::DrawQuad({ -0.5f,-0.5f,0.0f }, { 1.0f,1.0f },m_CheckboardTexture, 5.0f);
+		Reptile::Renderer2D::DrawRotatedQuad({ -0.5f,-0.5f,0.0f }, { 1.0f,1.0f },rotation, m_CheckboardTexture, 5.0f);
+
 
 		//Reptile::Renderer2D::DrawRotatedQuad({ 0.0f,0.0f,-0.1f }, { 10.0f,10.0f }, glm::radians(80.0f),m_CheckboardTexture, 10.0f, glm::vec4(1.0f, 0.5f, 0.3f, 1.0f));
 	}
