@@ -269,6 +269,7 @@ namespace Reptile {
 
 		s_Data.QuadIndexCount += 6;
 		s_Data.Stats.QuadCount++;
+
 #if OLD_PATH
 		s_Data.TextureShader->SetFloat4("u_Color", tintColor);
 		s_Data.TextureShader->SetFloat("u_TilingFactor", tilingFactor);
