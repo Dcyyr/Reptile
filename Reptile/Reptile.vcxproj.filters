@@ -1418,6 +1418,8 @@
     </ClInclude>
     <ClInclude Include="src\Reptile\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Reptile\Debug\Instrumentor.h" />
+    <ClInclude Include="src\Reptile\Renderer\Framebuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1496,5 +1498,7 @@
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\Reptile\Renderer\Renderer2D.cpp" />
+    <ClCompile Include="src\Reptile\Renderer\Framebuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
   </ItemGroup>
 </Project>

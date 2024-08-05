@@ -15,6 +15,12 @@ void Sandbox2D::OnAttach()
 {
 	RP_PROFILE_FUNCTION();
 	m_CheckboardTexture = Reptile::Texture2D::Create("assets/textures/1.png");
+
+    Reptile::FramebufferSpecification fbSpec;
+    fbSpec.Width = 1280;
+    fbSpec.Height = 720;
+    m_Framebuffer = Reptile::Framebuffer::Create(fbSpec);
+
 }
 
 void Sandbox2D::OnDetach()
@@ -38,6 +44,7 @@ void Sandbox2D::OnUpdate(Reptile::Timestep ts)
 	Reptile::Renderer2D::ResetStats();
 	{
 		RP_PROFILE_SCOPE("Renderer Prep");
+        m_Framebuffer->Bind();
 		Reptile::RendererCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		Reptile::RendererCommand::Clear();
 	}
@@ -69,7 +76,7 @@ void Sandbox2D::OnUpdate(Reptile::Timestep ts)
 
 		Reptile::Renderer2D::EndScene();
 
-
+        m_Framebuffer->Unbind();
 		//Reptile::Renderer2D::DrawRotatedQuad({ 0.0f,0.0f,-0.1f }, { 10.0f,10.0f }, glm::radians(80.0f),m_CheckboardTexture, 10.0f, glm::vec4(1.0f, 0.5f, 0.3f, 1.0f));
 	}
 }
@@ -155,8 +162,8 @@ void Sandbox2D::OnImGuiRender()
         ImGui::ShowDemoWindow(&show);
         ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
 
-        uint32_t textureID = m_CheckboardTexture->GetRendererID();
-        ImGui::Image((void*)textureID, ImVec2{ 256.0f, 256.0f });
+        uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
+        ImGui::Image((void*)textureID, ImVec2{ 1280,720 });
         ImGui::End();
 
         ImGui::End();
@@ -176,7 +183,7 @@ void Sandbox2D::OnImGuiRender()
 
         ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
 
-        uint32_t textureID = m_CheckboardTexture->GetRendererID();
+        uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
         ImGui::Image((void*)textureID, ImVec2{ 256.0f, 256.0f });
         ImGui::End();
     }
