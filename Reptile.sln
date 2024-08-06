@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImGui", "Reptile\vendor\img
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Reptile", "Reptile\Reptile.vcxproj", "{1A3CAC9F-861B-2B3B-8F33-B611FB91919C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReptileRoom", "ReptileRoom\ReptileRoom.vcxproj", "{17976FD5-834C-E8CA-0C41-E2A178F5DECE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -50,6 +52,12 @@ Global
 		{1A3CAC9F-861B-2B3B-8F33-B611FB91919C}.Dist|x64.Build.0 = Dist|x64
 		{1A3CAC9F-861B-2B3B-8F33-B611FB91919C}.Release|x64.ActiveCfg = Release|x64
 		{1A3CAC9F-861B-2B3B-8F33-B611FB91919C}.Release|x64.Build.0 = Release|x64
+		{17976FD5-834C-E8CA-0C41-E2A178F5DECE}.Debug|x64.ActiveCfg = Debug|x64
+		{17976FD5-834C-E8CA-0C41-E2A178F5DECE}.Debug|x64.Build.0 = Debug|x64
+		{17976FD5-834C-E8CA-0C41-E2A178F5DECE}.Dist|x64.ActiveCfg = Dist|x64
+		{17976FD5-834C-E8CA-0C41-E2A178F5DECE}.Dist|x64.Build.0 = Dist|x64
+		{17976FD5-834C-E8CA-0C41-E2A178F5DECE}.Release|x64.ActiveCfg = Release|x64
+		{17976FD5-834C-E8CA-0C41-E2A178F5DECE}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

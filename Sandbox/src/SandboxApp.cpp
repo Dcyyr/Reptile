@@ -8,6 +8,7 @@ class Sandbox : public Reptile::Application
 {
 public:
 	Sandbox()
+		:Application("Sandbox ")
 	{
 		PushLayer(new Sandbox2D());
 	}

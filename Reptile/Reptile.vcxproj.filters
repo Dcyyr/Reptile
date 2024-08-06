@@ -19,6 +19,9 @@
     <Filter Include="src\Reptile\Core">
       <UniqueIdentifier>{29A7F193-15A0-10E6-3ED2-F56A2A2AF0F1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Reptile\Debug">
+      <UniqueIdentifier>{67E73212-D3FD-30A8-1C75-BCC988CA0130}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Reptile\Events">
       <UniqueIdentifier>{F5261A5C-E10A-DBB1-4A6B-D504366EC533}</UniqueIdentifier>
     </Filter>
@@ -58,6 +61,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
@@ -117,6 +123,9 @@
     <ClInclude Include="src\Reptile\Core\Window.h">
       <Filter>src\Reptile\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Reptile\Debug\Instrumentor.h">
+      <Filter>src\Reptile\Debug</Filter>
+    </ClInclude>
     <ClInclude Include="src\Reptile\Events\ApplicationEvent.h">
       <Filter>src\Reptile\Events</Filter>
     </ClInclude>
@@ -135,6 +144,9 @@
     <ClInclude Include="src\Reptile\Renderer\Buffer.h">
       <Filter>src\Reptile\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Reptile\Renderer\Framebuffer.h">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Reptile\Renderer\GraphicsContext.h">
       <Filter>src\Reptile\Renderer</Filter>
     </ClInclude>
@@ -145,6 +157,9 @@
       <Filter>src\Reptile\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Reptile\Renderer\Renderer.h">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Renderer\Renderer2D.h">
       <Filter>src\Reptile\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Reptile\Renderer\RendererAPI.h">
@@ -1416,16 +1431,15 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Reptile\Renderer\Renderer2D.h" />
-    <ClInclude Include="src\Reptile\Debug\Instrumentor.h" />
-    <ClInclude Include="src\Reptile\Renderer\Framebuffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
@@ -1467,6 +1481,9 @@
     <ClCompile Include="src\Reptile\Renderer\Buffer.cpp">
       <Filter>src\Reptile\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Reptile\Renderer\Framebuffer.cpp">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Reptile\Renderer\OrthographicCameraController.cpp">
       <Filter>src\Reptile\Renderer</Filter>
     </ClCompile>
@@ -1474,6 +1491,9 @@
       <Filter>src\Reptile\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Reptile\Renderer\Renderer.cpp">
+      <Filter>src\Reptile\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Renderer\Renderer2D.cpp">
       <Filter>src\Reptile\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Reptile\Renderer\RendererAPI.cpp">
@@ -1497,8 +1517,6 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Reptile\Renderer\Renderer2D.cpp" />
-    <ClCompile Include="src\Reptile\Renderer\Framebuffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
+    <ClCompile Include="src\Reptile\Core\Window.cpp" />
   </ItemGroup>
 </Project>

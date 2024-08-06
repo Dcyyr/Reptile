@@ -158,3 +158,58 @@ project "Sandbox"
 		defines "PR_DIST"
 		runtime "Release"
 		symbols "on"
+
+
+
+project "ReptileRoom"
+	location "ReptileRoom"	
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir("bin/" .. outputdir .. "/%{prj.name}")
+	objdir("bin-int/" .. outputdir .. "/%{prj.name}")
+
+		files
+		{
+			"%{prj.name}/src/**.h",
+			"%{prj.name}/src/**.cpp"
+		}
+
+		includedirs
+		{
+			"Reptile/vendor/spdlog/include",
+			"Reptile/src",
+			"Reptile/vendor",
+			"%{IncludeDir.glm}"
+		}
+
+
+		filter "system:windows"
+		systemversion "latest"
+
+		defines
+		{
+			"RP_PLATFORM_WINDOWS"
+		}
+
+		links
+		{
+			"Reptile"
+		}
+
+	filter "configurations:Debug"
+		defines "PR_DEBUG"
+		runtime "Debug"
+		symbols "on"
+
+	filter "configurations:Release"
+		defines "PR_RELEASE"
+		runtime "Release"
+		symbols "on"
+
+	filter "configurations:Dist"
+		defines "PR_DIST"
+		runtime "Release"
+		symbols "on"

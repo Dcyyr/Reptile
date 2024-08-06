@@ -605,6 +605,7 @@
     <ClCompile Include="src\Reptile\Core\Layer.cpp" />
     <ClCompile Include="src\Reptile\Core\LayerStack.cpp" />
     <ClCompile Include="src\Reptile\Core\Log.cpp" />
+    <ClCompile Include="src\Reptile\Core\Window.cpp" />
     <ClCompile Include="src\Reptile\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Reptile\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Reptile\Renderer\Buffer.cpp" />
