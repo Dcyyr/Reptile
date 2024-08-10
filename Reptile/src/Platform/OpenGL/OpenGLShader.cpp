@@ -135,7 +135,7 @@ namespace Reptile {
 		}
 
 		m_RendererID = program;
-
+		
 		// Link our program
 		glLinkProgram(program);
 

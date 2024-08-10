@@ -16,7 +16,6 @@ namespace Reptile {
 		virtual void SetData(const void* data, uint32_t size);
 
 
-
 		virtual const BufferLayout& GetLayout() const override { return m_Layout; }
 		virtual void SetLayout(const BufferLayout& layout) override { m_Layout = layout; }
 	private:
@@ -32,7 +31,6 @@ namespace Reptile {
 
 		virtual void Bind() const;
 		virtual void Unbind() const;
-
 		virtual uint32_t GetCount() const { return m_Count; }
 	private:
 		uint32_t m_RendererID;

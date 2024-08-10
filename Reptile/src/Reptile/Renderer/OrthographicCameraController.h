@@ -15,6 +15,7 @@ namespace Reptile {
 		void OnUpdate(Timestep ts);
 		void OnEvent(Event& e);
 
+		void OnResize(float width, float height);
 		OrthographicsCamera& GetCamera() { return m_Camera; }
 		const OrthographicsCamera& GetCamera() const { return m_Camera; }
 	private:

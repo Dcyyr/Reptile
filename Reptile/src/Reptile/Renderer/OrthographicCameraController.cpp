@@ -7,7 +7,8 @@
 namespace Reptile {
 
 	OrthographicCameraController::OrthographicCameraController(float aspectRatio, bool rotation)
-		: m_AspectRatio(aspectRatio), m_Camera(-m_AspectRatio * m_ZoomLevel, m_AspectRatio* m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel), m_Rotation(rotation)
+		: m_AspectRatio(aspectRatio), m_Camera(-m_AspectRatio * m_ZoomLevel, m_AspectRatio* m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel),
+		m_Rotation(rotation)
 	{
 	}
 
@@ -52,6 +53,12 @@ namespace Reptile {
 		dispatcher.Dispatch<WindowResizeEvent>(RP_BIND_EVENT_FN(OrthographicCameraController::OnWindowResized));
 	}
 
+	void OrthographicCameraController::OnResize(float width, float height)
+	{
+		m_AspectRatio = width / height;
+		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+	}
+
 	bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
 		RP_PROFILE_FUNCTION();
@@ -64,8 +71,8 @@ namespace Reptile {
 	bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
 	{
 		RP_PROFILE_FUNCTION();
-		m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
-		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+		
+		OnResize((float)e.GetWidth(), (float)e.GetHeight());
 		return false;
 	}
 
