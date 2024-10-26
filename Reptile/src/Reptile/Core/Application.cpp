@@ -30,6 +30,11 @@ namespace Reptile {
 		PushOverlay(m_ImGuiLayer);
 	}
 	
+	Application::~Application()
+	{
+		RP_PROFILE_FUNCTION();
+		Renderer::Shutdown();
+	}
 
 	void Application::PushLayer(Layer* layer)
 	{

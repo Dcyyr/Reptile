@@ -17,7 +17,7 @@ namespace Reptile {
 	{
 	public:
 		Application(const std::string& name);
-		virtual ~Application() = default;
+		virtual ~Application();
 
 		void Run();
 		void Close();
@@ -27,9 +27,11 @@ namespace Reptile {
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
 
-		inline Window& GetWindow() { return *m_Window; }
+		Window& GetWindow() { return *m_Window; }
 
-		inline static Application& Get() { return *s_Instance; }
+		ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
+
+		static Application& Get() { return *s_Instance; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
@@ -42,6 +44,7 @@ namespace Reptile {
 		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
+		
 	};
 
 	// To be defined in CLIENT

@@ -1,6 +1,6 @@
 workspace "Reptile"
 	architecture "x64"
-	startproject "Sandbox"
+	startproject "ReptileRoom"
 
 	configurations
 	{
