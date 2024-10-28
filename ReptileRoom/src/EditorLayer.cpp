@@ -1,3 +1,4 @@
+#include "Reptile.h"
 #include "EditorLayer.h"
 #include "imgui/imgui.h"
 
@@ -22,6 +23,13 @@ namespace Reptile {
         fbSpec.Height = 720;
         m_Framebuffer = Framebuffer::Create(fbSpec);
 
+        m_ActiveScene = std::make_shared<Scene>();
+        auto square = m_ActiveScene->CreateEntity();
+
+        m_ActiveScene->Reg().emplace<TransformComponent>(square);
+        m_ActiveScene->Reg().emplace<SpriteRendererComponent>(square, glm::vec4{ 0.0f, 1.0f, 0.0f, 1.0f });
+        m_SquareEntity = square;
+
     }
 
     void EditorLayer::OnDetach()
@@ -35,6 +43,15 @@ namespace Reptile {
     {
         // Update
         RP_PROFILE_FUNCTION();
+
+        //Resize
+        if (Reptile::FramebufferSpecification spec = m_Framebuffer->GetSpecification();
+            m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && (spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
+        {
+            m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+            m_CameraController.OnResize((float)m_ViewportSize.x, (float)m_ViewportSize.y);
+        }
+
 
         if(m_ViewportFocused)
             m_CameraController.OnUpdate(ts);
@@ -170,12 +187,8 @@ namespace Reptile {
             Application::Get().GetImGuiLayer()->BlockEvent(!m_ViewportFocused || !m_ViewportHovered);
 
             ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
-            if (m_ViewportSize != *(glm::vec2*)&viewportPanelSize)
-            {
-                m_Framebuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
-                m_ViewportSize = { viewportPanelSize.x,viewportPanelSize.y };
-                m_CameraController.OnResize(viewportPanelSize.x, viewportPanelSize.y);
-            }
+           
+            m_ViewportSize = { viewportPanelSize.x,viewportPanelSize.y };
 
             uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
             ImGui::Image((void*)textureID, ImVec2{ viewportPanelSize.x, viewportPanelSize.y },ImVec2{0,1},ImVec2{1,0});

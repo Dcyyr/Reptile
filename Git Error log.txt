@@ -1,0 +1,17 @@
+首先执行git log 查看你之前的提交日志（比如我的就很简单嗯/复杂一点地久仔细看下时间进行判断吧）
+
+然后执行git reset XXX，恢复到你没有添加大文件的那次commit记录，实在是妙
+
+完了之后再按命令去git push 即可
+
+弄完后重新 git add * git commit -m ,git push origin main可能会有这种错误，然后git pull origin main再git push origin main就行了，不知道为啥
+
+
+D:\dev\Reptile>git push origin main
+To https://github.com/Dcyyr/Reptile
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/Dcyyr/Reptile'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
