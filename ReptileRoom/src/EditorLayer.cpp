@@ -1,3 +1,4 @@
+#include "Reptile.h"
 #include "EditorLayer.h"
 #include "imgui/imgui.h"
 
@@ -21,6 +22,13 @@ namespace Reptile {
         fbSpec.Width = 1280;
         fbSpec.Height = 720;
         m_Framebuffer = Framebuffer::Create(fbSpec);
+
+        m_ActiveScene = std::make_shared<Scene>();
+        auto square = m_ActiveScene->CreateEntity();
+
+        m_ActiveScene->Reg().emplace<TransformComponent>(square);
+        m_ActiveScene->Reg().emplace<SpriteRendererComponent>(square, glm::vec4{ 0.0f, 1.0f, 0.0f, 1.0f });
+        m_SquareEntity = square;
 
     }
 

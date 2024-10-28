@@ -17,6 +17,7 @@ workspace "Reptile"
 	IncludeDir["ImGui"] = "Reptile/vendor/imgui"
 	IncludeDir["glm"]   = "Reptile/vendor/glm"
 	IncludeDir["stb_image"] = "Reptile/vendor/stb_image"
+	IncludeDir["entt"]   = "Reptile/vendor/entt/include"
 
 
 	group "Dependencies"
@@ -66,7 +67,8 @@ workspace "Reptile"
 			"%{IncludeDir.Glad}",
 			"%{IncludeDir.ImGui}",
 			"%{IncludeDir.glm}",
-			"%{IncludeDir.stb_image}"
+			"%{IncludeDir.stb_image}",
+			"%{IncludeDir.entt}"
 			
 		}
 
@@ -127,7 +129,8 @@ project "Sandbox"
 			"Reptile/vendor/spdlog/include",
 			"Reptile/src",
 			"Reptile/vendor",
-			"%{IncludeDir.glm}"
+			"%{IncludeDir.glm}",
+			"%{IncludeDir.entt}"
 		}
 
 
@@ -182,7 +185,8 @@ project "ReptileRoom"
 			"Reptile/vendor/spdlog/include",
 			"Reptile/src",
 			"Reptile/vendor",
-			"%{IncludeDir.glm}"
+			"%{IncludeDir.glm}",
+			"%{IncludeDir.entt}"
 		}
 
 

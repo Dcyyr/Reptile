@@ -31,6 +31,9 @@
     <Filter Include="src\Reptile\Renderer">
       <UniqueIdentifier>{F7C63AC2-E355-C48B-8C74-D88678E2D431}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Reptile\Scene">
+      <UniqueIdentifier>{0E4A4113-7A60-3FA9-C3D7-CACA2F2D1031}</UniqueIdentifier>
+    </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
     </Filter>
@@ -173,6 +176,9 @@
     </ClInclude>
     <ClInclude Include="src\Reptile\Renderer\VertexArray.h">
       <Filter>src\Reptile\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Reptile\Scene\Scene.h">
+      <Filter>src\Reptile\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\rppch.h">
       <Filter>src</Filter>
@@ -1428,6 +1434,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="src\Reptile\Scene\Components.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1510,6 +1517,9 @@
     </ClCompile>
     <ClCompile Include="src\Reptile\Renderer\VertexArray.cpp">
       <Filter>src\Reptile\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Scene\Scene.cpp">
+      <Filter>src\Reptile\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\rppch.cpp">
       <Filter>src</Filter>
