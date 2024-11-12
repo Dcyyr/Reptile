@@ -177,6 +177,9 @@
     <ClInclude Include="src\Reptile\Renderer\VertexArray.h">
       <Filter>src\Reptile\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Reptile\Scene\Components.h">
+      <Filter>src\Reptile\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="src\Reptile\Scene\Scene.h">
       <Filter>src\Reptile\Scene</Filter>
     </ClInclude>
@@ -1434,7 +1437,9 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Reptile\Scene\Components.h" />
+    <ClInclude Include="src\Reptile\Scene\Entity.h">
+      <Filter>src\Reptile\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1526,6 +1531,9 @@
     </ClCompile>
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Reptile\Scene\Entity.cpp">
+      <Filter>src\Reptile\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

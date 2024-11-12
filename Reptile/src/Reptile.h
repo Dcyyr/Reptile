@@ -18,6 +18,7 @@
 #include "Reptile/ImGui/ImGuiLayer.h"
 #include "Reptile/Scene/Components.h"
 #include "Reptile/Scene/Scene.h"
+#include "Reptile/Scene/Entity.h"
 // ---Renderer------------------------
 #include "Reptile/Renderer/Renderer.h"
 #include "Reptile/Renderer/Renderer2D.h"

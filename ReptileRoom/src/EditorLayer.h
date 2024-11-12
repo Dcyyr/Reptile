@@ -25,7 +25,7 @@ namespace Reptile {
 		Ref<Framebuffer> m_Framebuffer;
 		Ref<Scene> m_ActiveScene;
 
-		entt::entity m_SquareEntity;
+		Entity m_SquareEntity;
 		bool m_ViewportFocused = false, m_ViewportHovered = false;
 
 		glm::vec2 m_ViewportSize = { 0.0f,0.0f };
