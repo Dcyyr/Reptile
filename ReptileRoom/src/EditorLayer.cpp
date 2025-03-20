@@ -1,3 +1,4 @@
+#include "Reptile.h"
 #include "EditorLayer.h"
 #include "imgui/imgui.h"
 
@@ -22,6 +23,34 @@ namespace Reptile {
         fbSpec.Height = 720;
         m_Framebuffer = Framebuffer::Create(fbSpec);
 
+        m_ActiveScene = std::make_shared<Scene>();
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+        auto square = m_ActiveScene->CreateEntity("Green Square");
+        square.AddComponent<SpriteRendererComponent>(glm::vec4{ 0.0f, 1.0f, 0.0f, 1.0f });
+
+=======
+        //Entity
+        auto square = m_ActiveScene->CreateEntity("Green Square");
+        square.AddComponent<SpriteRendererComponent>(glm::vec4(0.0f, 1.0f, 0.0f, 1.0f));
+>>>>>>> 5300d42041628bc510293625d8adff7ce28217eb
+        m_SquareEntity = square;
+
+        m_CameraEntity = m_ActiveScene->CreateEntity("Camera Entity");
+        m_CameraEntity.AddComponent<CameraComponent>(glm::ortho(-16.0f,16.0f,-9.0f,9.0f,-1.0f,1.0f));
+
+		m_SecondCamera = m_ActiveScene->CreateEntity("Clip-Space Camera");
+        auto& cc = m_SecondCamera.AddComponent<CameraComponent>(glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f));
+        cc.Primary = false;
+
+=======
+        //Entity
+        auto square = m_ActiveScene->CreateEntity("Green Square");
+        square.AddComponent<SpriteRendererComponent>(glm::vec4(0.0f, 1.0f, 0.0f, 1.0f));
+        m_SquareEntity = square;
+
+>>>>>>> 5300d42041628bc510293625d8adff7ce28217eb
     }
 
     void EditorLayer::OnDetach()
@@ -37,7 +66,7 @@ namespace Reptile {
         RP_PROFILE_FUNCTION();
 
         //Resize
-        if (Reptile::FramebufferSpecification spec = m_Framebuffer->GetSpecification();
+        if (FramebufferSpecification spec = m_Framebuffer->GetSpecification();
             m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && (spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
         {
             m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
@@ -48,44 +77,47 @@ namespace Reptile {
         if(m_ViewportFocused)
             m_CameraController.OnUpdate(ts);
 
+<<<<<<< HEAD
+<<<<<<< HEAD
         Renderer2D::ResetStats();
-        {
-            RP_PROFILE_SCOPE("Renderer Prep");
+        
+        m_Framebuffer->Bind();
+        RendererCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });//±³¾°ÑÕÉ«
+        RendererCommand::Clear();
+        
+        // Render
+   
+        m_ActiveScene->OnUpdate(ts);
+
+        Renderer2D::EndScene();
+
+        m_Framebuffer->Unbind();
+        // Renderer2D::DrawRotatedQuad({ 0.0f,0.0f,-0.1f }, { 10.0f,10.0f }, glm::radians(80.0f),m_CheckboardTexture, 10.0f, glm::vec4(1.0f, 0.5f, 0.3f, 1.0f));
+=======
+=======
+>>>>>>> 5300d42041628bc510293625d8adff7ce28217eb
+            Renderer2D::ResetStats();
+        
             m_Framebuffer->Bind();
             RendererCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
             RendererCommand::Clear();
-        }
+        
         // Render
-        {
-            static float rotation = 0.0f;
-            rotation += ts * 50.0f;
-
-            RP_PROFILE_SCOPE("Renderer Draw");
-            Renderer2D::BeginScene(m_CameraController.GetCamera());
-            Renderer2D::DrawRotatedQuad({ 1.0f, 0.0f }, { 0.8f, 0.8f }, -45.0f, { 0.8f, 0.2f, 0.3f, 1.0f });
-            Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, { 0.8f, 0.2f, 0.3f, 1.0f });
-            Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, { 0.2f, 0.3f, 0.8f, 1.0f });
-            Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_CheckboardTexture, 10.0f);
-            Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 20.0f, 20.0f }, m_CheckboardTexture, 10.0f);
-            Renderer2D::DrawRotatedQuad({ -2.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, rotation, m_CheckboardTexture, 20.0f);
-            Renderer2D::EndScene();
 
             Renderer2D::BeginScene(m_CameraController.GetCamera());
-            for (float y = -5.0f; y < 5.0f; y += 0.5f)
-            {
-
-                for (float x = -5.0f; x < 5.0f; x += 0.5f)
-                {
-                    glm::vec4 color = { (x + 5.0 / 10.0),0.4f,(y + 5.0f) / 10.0f,0.5f };
-                    Renderer2D::DrawQuad({ x,y }, { 0.45f,0.45f }, color);
-                }
-            }
+            m_ActiveScene->OnUpdate(ts);
 
             Renderer2D::EndScene();
 
+      
+      
             m_Framebuffer->Unbind();
             // Renderer2D::DrawRotatedQuad({ 0.0f,0.0f,-0.1f }, { 10.0f,10.0f }, glm::radians(80.0f),m_CheckboardTexture, 10.0f, glm::vec4(1.0f, 0.5f, 0.3f, 1.0f));
-        }
+<<<<<<< HEAD
+>>>>>>> 5300d42041628bc510293625d8adff7ce28217eb
+=======
+>>>>>>> 5300d42041628bc510293625d8adff7ce28217eb
+        
     }
 
     void EditorLayer::OnImGuiRender()
@@ -166,9 +198,29 @@ namespace Reptile {
             ImGui::Text("Vertices: %d", stats.GetVertexCount());
             ImGui::Text("Indices: %d", stats.GetIndexCount());
 
-            
-            ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));
+            {
+                ImGui::Separator();
+                auto& tag = m_SquareEntity.GetComponent<TagComponent>().Tag;
+                ImGui::Text("%s", tag.c_str());
 
+                auto& SquareColor = m_SquareEntity.GetComponent<SpriteRendererComponent>().Color;
+                ImGui::ColorEdit4("Square Color", glm::value_ptr(SquareColor));
+                ImGui::Separator();
+            }
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+            ImGui::DragFloat3("Camera Tranform", glm::value_ptr(m_CameraEntity.GetComponent<TransformComponent>().Transform[3]));
+
+            if (ImGui::Checkbox("Camera A", &m_PrimaryCamera))
+            {
+				m_CameraEntity.GetComponent<CameraComponent>().Primary = m_PrimaryCamera;
+				m_SecondCamera.GetComponent<CameraComponent>().Primary = !m_PrimaryCamera;
+            }
+=======
+>>>>>>> 5300d42041628bc510293625d8adff7ce28217eb
+=======
+>>>>>>> 5300d42041628bc510293625d8adff7ce28217eb
             
             ImGui::End();
 

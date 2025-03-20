@@ -78,10 +78,10 @@ namespace Reptile {
 
 		const char* typeToken = "#type";
 		size_t typeTokenLength = strlen(typeToken);
-		size_t pos = source.find(typeToken, 0);
-		while (pos != std::string::npos)
+		size_t pos = source.find(typeToken, 0);//查找第一次出现的目标字符串
+		while (pos != std::string::npos)//直到字符串结尾
 		{
-			size_t eol = source.find_first_of("\r\n", pos);
+			size_t eol = source.find_first_of("\r\n", pos);//如果需要换行，就从下一行第一个字符串开始
 			RP_CORE_ASSERT(eol != std::string::npos, "Syntax error");
 			size_t begin = pos + typeTokenLength + 1;
 			std::string type = source.substr(begin, eol - begin);
@@ -89,7 +89,9 @@ namespace Reptile {
 
 			size_t nextLinePos = source.find_first_not_of("\r\n", eol);
 			pos = source.find(typeToken, nextLinePos);
-			shaderSources[ShaderTypeFromString(type)] = source.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? source.size() - 1 : nextLinePos));
+			shaderSources[ShaderTypeFromString(type)] = 
+				source.substr(nextLinePos,
+					pos - (nextLinePos == std::string::npos ? source.size() - 1 : nextLinePos));
 		}
 
 		return shaderSources;
